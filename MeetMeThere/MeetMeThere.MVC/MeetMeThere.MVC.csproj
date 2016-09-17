@@ -577,6 +577,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\HttpResponseExceptionHelper.cs" />
+    <Compile Include="Helper\ImageProvider.cs" />
     <Compile Include="Helper\JwtHelper.cs" />
     <Compile Include="Helper\PasswordHash.cs" />
     <Compile Include="Models\CategoryFilter.cs" />
