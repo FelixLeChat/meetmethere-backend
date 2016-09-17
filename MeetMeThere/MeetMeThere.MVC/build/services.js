@@ -17,6 +17,8 @@
       login: login,
       logout: logout,
       isLoggedIn: isLoggedIn,
+      getToken: getToken,
+      getInfo: getInfo,
     };
 
     return service;
@@ -32,10 +34,6 @@
       });
     }
 
-    function apiCall() {
-        
-    }
-
     function isLoggedIn() {
       return this.loggedIn == ($cookies.get('utoken') && true);
     }
@@ -48,6 +46,14 @@
           $window.location.href = '/Dashboard/Teams';
         }
       });
+    }
+
+    function getToken(){
+      return $cookies.get('utoken');
+    }
+
+    function getInfo(){
+      return $cookies.get('uinfo');
     }
 
     function logout() {
@@ -91,7 +97,7 @@
      * @param payload <object> JSON object used to specify query criteria to the backend
      **/
     function http(method){
-      return function request(route, payload) {
+      return function request(route, payload, token) {
         console.log("Requesting route " + route + " with payload");
         console.log(payload);
         var req = {
@@ -103,6 +109,9 @@
         };
         if(payload){
           req.data = payload;
+        }
+        if(token){
+          req.headers.Authorization = token;
         }
         return $http(req).then(
           function(response) {

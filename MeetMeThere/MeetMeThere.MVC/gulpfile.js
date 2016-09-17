@@ -41,7 +41,7 @@ var paths = {
   ]
 };
 
-gulp.task('default', ['clean', 'build:dev', 'watch']);
+gulp.task('default', ['clean', 'build:dev', /*'watch'*/]);
 
 gulp.task('clean', function(done) {
   del.sync('./build/*.js');

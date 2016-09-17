@@ -263,3 +263,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+MeetMeThere/MeetMeThere.MVC/Views/Dashboard/Teams_BACKUP_2232.cshtml
+MeetMeThere/MeetMeThere.MVC/Views/Dashboard/Teams_BASE_2232.cshtml
+MeetMeThere/MeetMeThere.MVC/Views/Dashboard/Teams_LOCAL_2232.cshtml
+MeetMeThere/MeetMeThere.MVC/Views/Dashboard/Teams_REMOTE_2232.cshtml
