@@ -27,7 +27,7 @@ namespace MeetMeThere.Api.Controllers.SecureController
 
                 return JwtHelper.DecodeToken(token);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw HttpResponseExceptionHelper.Create("Invalid token - Secure controller", HttpStatusCode.Forbidden);
             }

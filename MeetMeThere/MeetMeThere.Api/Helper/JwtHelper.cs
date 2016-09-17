@@ -21,14 +21,14 @@ namespace MeetMeThere.Api.Helper
                 if (jsonPayload == null)
                     return false;
 
-                var canadaTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.Now.ToUniversalTime(),
-                    TimeZoneInfo.FindSystemTimeZoneById("Atlantic Standard Time"));
+                //var canadaTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.Now.ToUniversalTime(),
+                //    TimeZoneInfo.FindSystemTimeZoneById("Atlantic Standard Time"));
 
-                var expiration = (DateTime)jsonPayload["Expiration"];
+                //var expiration = (DateTime)jsonPayload["Expiration"];
 
-                // Expired
-                if (expiration < canadaTime)
-                    return false;
+                //// Expired
+                //if (expiration < canadaTime)
+                //    return false;
             }
             catch (JWT.SignatureVerificationException)
             {
@@ -47,7 +47,7 @@ namespace MeetMeThere.Api.Helper
             {
                 { "username", token.Username },
                 { "userId", token.UserId },
-                { "Expiration", canadaExpirationTime }
+                //{ "Expiration", canadaExpirationTime }
             };
             return JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
         }
@@ -64,9 +64,9 @@ namespace MeetMeThere.Api.Helper
                 if (jsonPayload.ContainsKey("username"))
                     userToken.Username = (string)jsonPayload["username"];
                 if (jsonPayload.ContainsKey("userId"))
-                    userToken.UserId = int.Parse((string)jsonPayload["userId"]);
-                if (jsonPayload.ContainsKey("Expiration"))
-                    userToken.ExpirationDate = (DateTime)jsonPayload["Expiration"];
+                    userToken.UserId = (int)jsonPayload["userId"];
+                //if (jsonPayload.ContainsKey("Expiration"))
+                //    userToken.ExpirationDate = (DateTime)jsonPayload["Expiration"];
 
                 return userToken;
             }
