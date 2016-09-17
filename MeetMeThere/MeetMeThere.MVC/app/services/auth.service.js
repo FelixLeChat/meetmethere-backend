@@ -14,6 +14,7 @@
       logout: logout,
       isLoggedIn: isLoggedIn,
       getToken: getToken,
+      getInfo: getInfo,
     };
 
     return service;
@@ -41,6 +42,14 @@
           $window.location.href = '/Dashboard/Teams';
         }
       });
+    }
+
+    function getToken(){
+      return $cookies.get('utoken');
+    }
+
+    function getInfo(){
+      return $cookies.get('uinfo');
     }
 
     function logout() {
