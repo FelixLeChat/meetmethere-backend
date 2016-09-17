@@ -1,0 +1,35 @@
+﻿@using System
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="register ui middle aligned center aligned grid">
+    <div class="column">
+
+        <img class="register--img" src="~/assets/img/logo.png">
+
+        <h2 class="register--header ui top attached header">Meet Me There</h2>
+
+        <form class="ui large form" ng-controller="SignupController as sctrl">
+            <div class="register--reset ui stacked attached segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input ng-model="sctrl.username" type="text" name="username" placeholder="Username">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input ng-model="sctrl.pwd" type="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div ng-click="sctrl.submit()" class="ui fluid large teal submit button">Login</div>
+            </div>
+            <div class="ui error message"></div>
+        </form>
+        <div class="ui message">
+            New to us? <a href="/Home/Register">Sign Up</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+
+.register {
+	padding-top: 100px !important;
+
+	& .column {
+	    max-width: 500px;
+	}
+
+	&--header {
+		background-color: $light-persian-green !important;
+		color: white !important;
+	}
+
+	&--img {
+		max-width: 90px;
+	}
+}

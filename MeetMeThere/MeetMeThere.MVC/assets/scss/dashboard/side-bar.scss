@@ -1,0 +1,31 @@
+.side-bar {
+	
+	&--logo {
+		background-color: $persian-green;
+		height: 150px;
+
+		&--img {
+			width: 240px;
+		    margin-top: 10px;
+		}
+	}
+
+	&--username {
+	    padding-top: 10px;
+    	padding-left: 10px;
+    	margin-bottom: 30px;
+	}
+}
+
+.ui.visible.sidebar {
+	background-color: $mercury !important;
+}
+
+.item {
+	& img {
+		float: left;
+    	width: 30px !important;
+    	margin-right: 5px !important;
+    	margin-top: -10px !important;
+	}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "meetmethere-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-hebert/meetmethere-frontend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/p-hebert/meetmethere-frontend/issues"
+  },
+  "homepage": "https://github.com/p-hebert/meetmethere-frontend#readme",
+  "dependencies": {
+    "bower": "1.7.9",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "5.0.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-expect-file": "0.0.7",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "gulp-yaml": "^1.0.1"
+  }
+}

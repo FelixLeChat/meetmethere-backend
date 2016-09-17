@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html ng-app="app" lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
+        <title>Meet Me There | Get together with your team!</title>
+        <link rel="stylesheet" type="text/css" href="./app/lib/semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+        <!-- TODO CSS style sheet -->
+    </head>
+    <body>
+
+
+        <div class="register ui middle aligned center aligned grid">
+            <div class="column">
+
+                <img class="register--img" src="./assets/img/logo.png">
+
+                <h2 class="register--header ui top attached header">Meet Me There</h2>
+
+                <form class="ui large form" ng-controller="SignupController as sctrl">
+                    <div class="register--reset ui stacked attached segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input ng-model="sctrl.email" type="email" name="email" placeholder="Email address">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input ng-model="sctrl.username" type="text" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input ng-model="sctrl.pwd" type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input ng-model="sctrl.cpwd" type="password" name="confirm-password" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div ng-click="sctrl.submit()" class="ui fluid large teal submit button">Sign Up</div>
+                    </div>
+                    <div class="ui error message"></div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script src="./app/lib/jquery/dist/jquery.min.js"></script>
+    <script src="./app/lib/semantic/dist/semantic.min.js"></script>
+    <script src="./app/lib/angular/angular.min.js"></script>
+    <script src="./build/mmt.app.js"></script>
+</html>

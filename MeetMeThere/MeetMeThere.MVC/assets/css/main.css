@@ -1,0 +1,66 @@
+.login {
+  padding-top: 140px !important; }
+  .login .column {
+    max-width: 500px; }
+
+.register {
+  padding-top: 100px !important; }
+  .register .column {
+    max-width: 500px; }
+  .register--header {
+    background-color: #00B5AD !important;
+    color: white !important; }
+  .register--img {
+    max-width: 90px; }
+
+body {
+  background-color: #DBDADA; }
+
+.side-bar--logo {
+  background-color: #00989B;
+  height: 150px; }
+  .side-bar--logo--img {
+    width: 240px;
+    margin-top: 10px; }
+
+.side-bar--username {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 30px; }
+
+.ui.visible.sidebar {
+  background-color: #E7E7E7 !important; }
+
+.item img {
+  float: left;
+  width: 30px !important;
+  margin-right: 5px !important;
+  margin-top: -10px !important; }
+
+.teams {
+  height: 150px; }
+  .teams--header {
+    color: #00B5AD; }
+  .teams--img {
+    height: 30px; }
+  .teams p {
+    font-size: 30px; }
+  .teams--button {
+    background-color: #00B5AD !important; }
+  .teams--title {
+    margin-top: 45px; }
+
+.pusher {
+  padding-right: 260px; }
+
+.team--button {
+  height: 30px; }
+
+.team, .team--member {
+  margin-bottom: 14px; }
+
+.create--positive {
+  background-color: #00B5AD !important; }
+
+.create, .create--description {
+  padding-left: 37.4px !important; }

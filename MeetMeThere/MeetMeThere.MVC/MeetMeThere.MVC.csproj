@@ -1,0 +1,1124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B25C58C0-10F9-45AB-8CA8-519902288D82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeetMeThere.MVC</RootNamespace>
+    <AssemblyName>MeetMeThere.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JWT, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleOAuth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleOAuth.Net.1.0.1\lib\net20\SimpleOAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\controllers\login.controller.js" />
+    <Content Include="app\controllers\signup.controller.js" />
+    <Content Include="app\controllers\_index.js" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.js" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.min.js" />
+    <Content Include="app\lib\angular-cookies\index.js" />
+    <Content Include="app\lib\angular-translate\angular-translate.js" />
+    <Content Include="app\lib\angular-translate\angular-translate.min.js" />
+    <Content Include="app\lib\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="app\lib\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="app\lib\angular-ui-router\src\common.js" />
+    <Content Include="app\lib\angular-ui-router\src\resolve.js" />
+    <Content Include="app\lib\angular-ui-router\src\state.js" />
+    <Content Include="app\lib\angular-ui-router\src\stateDirectives.js" />
+    <Content Include="app\lib\angular-ui-router\src\stateFilters.js" />
+    <Content Include="app\lib\angular-ui-router\src\templateFactory.js" />
+    <Content Include="app\lib\angular-ui-router\src\urlMatcherFactory.js" />
+    <Content Include="app\lib\angular-ui-router\src\urlRouter.js" />
+    <Content Include="app\lib\angular-ui-router\src\view.js" />
+    <Content Include="app\lib\angular-ui-router\src\viewDirective.js" />
+    <Content Include="app\lib\angular-ui-router\src\viewScroll.js" />
+    <Content Include="app\lib\angular\angular-csp.css" />
+    <Content Include="app\lib\angular\angular.js" />
+    <Content Include="app\lib\angular\angular.min.js" />
+    <Content Include="app\lib\angular\index.js" />
+    <Content Include="app\lib\jquery\AUTHORS.txt" />
+    <Content Include="app\lib\jquery\dist\core.js" />
+    <Content Include="app\lib\jquery\dist\jquery.js" />
+    <Content Include="app\lib\jquery\dist\jquery.min.js" />
+    <Content Include="app\lib\jquery\dist\jquery.slim.js" />
+    <Content Include="app\lib\jquery\dist\jquery.slim.min.js" />
+    <Content Include="app\lib\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="app\lib\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="app\lib\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="app\lib\jquery\LICENSE.txt" />
+    <Content Include="app\lib\jquery\src\ajax.js" />
+    <Content Include="app\lib\jquery\src\ajax\jsonp.js" />
+    <Content Include="app\lib\jquery\src\ajax\load.js" />
+    <Content Include="app\lib\jquery\src\ajax\parseXML.js" />
+    <Content Include="app\lib\jquery\src\ajax\script.js" />
+    <Content Include="app\lib\jquery\src\ajax\var\location.js" />
+    <Content Include="app\lib\jquery\src\ajax\var\nonce.js" />
+    <Content Include="app\lib\jquery\src\ajax\var\rquery.js" />
+    <Content Include="app\lib\jquery\src\ajax\xhr.js" />
+    <Content Include="app\lib\jquery\src\attributes.js" />
+    <Content Include="app\lib\jquery\src\attributes\attr.js" />
+    <Content Include="app\lib\jquery\src\attributes\classes.js" />
+    <Content Include="app\lib\jquery\src\attributes\prop.js" />
+    <Content Include="app\lib\jquery\src\attributes\support.js" />
+    <Content Include="app\lib\jquery\src\attributes\val.js" />
+    <Content Include="app\lib\jquery\src\callbacks.js" />
+    <Content Include="app\lib\jquery\src\core.js" />
+    <Content Include="app\lib\jquery\src\core\access.js" />
+    <Content Include="app\lib\jquery\src\core\DOMEval.js" />
+    <Content Include="app\lib\jquery\src\core\init.js" />
+    <Content Include="app\lib\jquery\src\core\parseHTML.js" />
+    <Content Include="app\lib\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="app\lib\jquery\src\core\ready.js" />
+    <Content Include="app\lib\jquery\src\core\readyException.js" />
+    <Content Include="app\lib\jquery\src\core\support.js" />
+    <Content Include="app\lib\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="app\lib\jquery\src\css.js" />
+    <Content Include="app\lib\jquery\src\css\addGetHookIf.js" />
+    <Content Include="app\lib\jquery\src\css\adjustCSS.js" />
+    <Content Include="app\lib\jquery\src\css\curCSS.js" />
+    <Content Include="app\lib\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="app\lib\jquery\src\css\showHide.js" />
+    <Content Include="app\lib\jquery\src\css\support.js" />
+    <Content Include="app\lib\jquery\src\css\var\cssExpand.js" />
+    <Content Include="app\lib\jquery\src\css\var\getStyles.js" />
+    <Content Include="app\lib\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="app\lib\jquery\src\css\var\rmargin.js" />
+    <Content Include="app\lib\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="app\lib\jquery\src\css\var\swap.js" />
+    <Content Include="app\lib\jquery\src\data.js" />
+    <Content Include="app\lib\jquery\src\data\Data.js" />
+    <Content Include="app\lib\jquery\src\data\var\acceptData.js" />
+    <Content Include="app\lib\jquery\src\data\var\dataPriv.js" />
+    <Content Include="app\lib\jquery\src\data\var\dataUser.js" />
+    <Content Include="app\lib\jquery\src\deferred.js" />
+    <Content Include="app\lib\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="app\lib\jquery\src\deprecated.js" />
+    <Content Include="app\lib\jquery\src\dimensions.js" />
+    <Content Include="app\lib\jquery\src\effects.js" />
+    <Content Include="app\lib\jquery\src\effects\animatedSelector.js" />
+    <Content Include="app\lib\jquery\src\effects\Tween.js" />
+    <Content Include="app\lib\jquery\src\event.js" />
+    <Content Include="app\lib\jquery\src\event\ajax.js" />
+    <Content Include="app\lib\jquery\src\event\alias.js" />
+    <Content Include="app\lib\jquery\src\event\focusin.js" />
+    <Content Include="app\lib\jquery\src\event\support.js" />
+    <Content Include="app\lib\jquery\src\event\trigger.js" />
+    <Content Include="app\lib\jquery\src\exports\amd.js" />
+    <Content Include="app\lib\jquery\src\exports\global.js" />
+    <Content Include="app\lib\jquery\src\jquery.js" />
+    <Content Include="app\lib\jquery\src\manipulation.js" />
+    <Content Include="app\lib\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="app\lib\jquery\src\manipulation\getAll.js" />
+    <Content Include="app\lib\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="app\lib\jquery\src\manipulation\support.js" />
+    <Content Include="app\lib\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="app\lib\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="app\lib\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="app\lib\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="app\lib\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="app\lib\jquery\src\offset.js" />
+    <Content Include="app\lib\jquery\src\queue.js" />
+    <Content Include="app\lib\jquery\src\queue\delay.js" />
+    <Content Include="app\lib\jquery\src\selector-native.js" />
+    <Content Include="app\lib\jquery\src\selector-sizzle.js" />
+    <Content Include="app\lib\jquery\src\selector.js" />
+    <Content Include="app\lib\jquery\src\serialize.js" />
+    <Content Include="app\lib\jquery\src\traversing.js" />
+    <Content Include="app\lib\jquery\src\traversing\findFilter.js" />
+    <Content Include="app\lib\jquery\src\traversing\var\dir.js" />
+    <Content Include="app\lib\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="app\lib\jquery\src\traversing\var\siblings.js" />
+    <Content Include="app\lib\jquery\src\var\arr.js" />
+    <Content Include="app\lib\jquery\src\var\class2type.js" />
+    <Content Include="app\lib\jquery\src\var\concat.js" />
+    <Content Include="app\lib\jquery\src\var\document.js" />
+    <Content Include="app\lib\jquery\src\var\documentElement.js" />
+    <Content Include="app\lib\jquery\src\var\fnToString.js" />
+    <Content Include="app\lib\jquery\src\var\getProto.js" />
+    <Content Include="app\lib\jquery\src\var\hasOwn.js" />
+    <Content Include="app\lib\jquery\src\var\indexOf.js" />
+    <Content Include="app\lib\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="app\lib\jquery\src\var\pnum.js" />
+    <Content Include="app\lib\jquery\src\var\push.js" />
+    <Content Include="app\lib\jquery\src\var\rcssNum.js" />
+    <Content Include="app\lib\jquery\src\var\rnotwhite.js" />
+    <Content Include="app\lib\jquery\src\var\slice.js" />
+    <Content Include="app\lib\jquery\src\var\support.js" />
+    <Content Include="app\lib\jquery\src\var\toString.js" />
+    <Content Include="app\lib\jquery\src\wrap.js" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog-custom-width.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog-theme-default.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog-theme-default.min.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog-theme-plain.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog-theme-plain.min.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog.css" />
+    <Content Include="app\lib\ng-dialog\css\ngDialog.min.css" />
+    <Content Include="app\lib\ng-dialog\js\ngDialog.js" />
+    <Content Include="app\lib\ng-dialog\js\ngDialog.min.js" />
+    <Content Include="app\lib\ng-dialog\karma.conf.js" />
+    <Content Include="app\lib\ng-dialog\protractor.conf.js" />
+    <Content Include="app\lib\ng-dialog\server.js" />
+    <Content Include="app\lib\semantic\.gitignore" />
+    <Content Include="app\lib\semantic\dist\components\accordion.css" />
+    <Content Include="app\lib\semantic\dist\components\accordion.js" />
+    <Content Include="app\lib\semantic\dist\components\accordion.min.css" />
+    <Content Include="app\lib\semantic\dist\components\accordion.min.js" />
+    <Content Include="app\lib\semantic\dist\components\ad.css" />
+    <Content Include="app\lib\semantic\dist\components\ad.min.css" />
+    <Content Include="app\lib\semantic\dist\components\api.js" />
+    <Content Include="app\lib\semantic\dist\components\api.min.js" />
+    <Content Include="app\lib\semantic\dist\components\breadcrumb.css" />
+    <Content Include="app\lib\semantic\dist\components\breadcrumb.min.css" />
+    <Content Include="app\lib\semantic\dist\components\button.css" />
+    <Content Include="app\lib\semantic\dist\components\button.min.css" />
+    <Content Include="app\lib\semantic\dist\components\card.css" />
+    <Content Include="app\lib\semantic\dist\components\card.min.css" />
+    <Content Include="app\lib\semantic\dist\components\checkbox.css" />
+    <Content Include="app\lib\semantic\dist\components\checkbox.js" />
+    <Content Include="app\lib\semantic\dist\components\checkbox.min.css" />
+    <Content Include="app\lib\semantic\dist\components\checkbox.min.js" />
+    <Content Include="app\lib\semantic\dist\components\colorize.js" />
+    <Content Include="app\lib\semantic\dist\components\colorize.min.js" />
+    <Content Include="app\lib\semantic\dist\components\comment.css" />
+    <Content Include="app\lib\semantic\dist\components\comment.min.css" />
+    <Content Include="app\lib\semantic\dist\components\container.css" />
+    <Content Include="app\lib\semantic\dist\components\container.min.css" />
+    <Content Include="app\lib\semantic\dist\components\dimmer.css" />
+    <Content Include="app\lib\semantic\dist\components\dimmer.js" />
+    <Content Include="app\lib\semantic\dist\components\dimmer.min.css" />
+    <Content Include="app\lib\semantic\dist\components\dimmer.min.js" />
+    <Content Include="app\lib\semantic\dist\components\divider.css" />
+    <Content Include="app\lib\semantic\dist\components\divider.min.css" />
+    <Content Include="app\lib\semantic\dist\components\dropdown.css" />
+    <Content Include="app\lib\semantic\dist\components\dropdown.js" />
+    <Content Include="app\lib\semantic\dist\components\dropdown.min.css" />
+    <Content Include="app\lib\semantic\dist\components\dropdown.min.js" />
+    <Content Include="app\lib\semantic\dist\components\embed.css" />
+    <Content Include="app\lib\semantic\dist\components\embed.js" />
+    <Content Include="app\lib\semantic\dist\components\embed.min.css" />
+    <Content Include="app\lib\semantic\dist\components\embed.min.js" />
+    <Content Include="app\lib\semantic\dist\components\feed.css" />
+    <Content Include="app\lib\semantic\dist\components\feed.min.css" />
+    <Content Include="app\lib\semantic\dist\components\flag.css" />
+    <Content Include="app\lib\semantic\dist\components\flag.min.css" />
+    <Content Include="app\lib\semantic\dist\components\form.css" />
+    <Content Include="app\lib\semantic\dist\components\form.js" />
+    <Content Include="app\lib\semantic\dist\components\form.min.css" />
+    <Content Include="app\lib\semantic\dist\components\form.min.js" />
+    <Content Include="app\lib\semantic\dist\components\grid.css" />
+    <Content Include="app\lib\semantic\dist\components\grid.min.css" />
+    <Content Include="app\lib\semantic\dist\components\header.css" />
+    <Content Include="app\lib\semantic\dist\components\header.min.css" />
+    <Content Include="app\lib\semantic\dist\components\icon.css" />
+    <Content Include="app\lib\semantic\dist\components\icon.min.css" />
+    <Content Include="app\lib\semantic\dist\components\image.css" />
+    <Content Include="app\lib\semantic\dist\components\image.min.css" />
+    <Content Include="app\lib\semantic\dist\components\input.css" />
+    <Content Include="app\lib\semantic\dist\components\input.min.css" />
+    <Content Include="app\lib\semantic\dist\components\item.css" />
+    <Content Include="app\lib\semantic\dist\components\item.min.css" />
+    <Content Include="app\lib\semantic\dist\components\label.css" />
+    <Content Include="app\lib\semantic\dist\components\label.min.css" />
+    <Content Include="app\lib\semantic\dist\components\list.css" />
+    <Content Include="app\lib\semantic\dist\components\list.min.css" />
+    <Content Include="app\lib\semantic\dist\components\loader.css" />
+    <Content Include="app\lib\semantic\dist\components\loader.min.css" />
+    <Content Include="app\lib\semantic\dist\components\menu.css" />
+    <Content Include="app\lib\semantic\dist\components\menu.min.css" />
+    <Content Include="app\lib\semantic\dist\components\message.css" />
+    <Content Include="app\lib\semantic\dist\components\message.min.css" />
+    <Content Include="app\lib\semantic\dist\components\modal.css" />
+    <Content Include="app\lib\semantic\dist\components\modal.js" />
+    <Content Include="app\lib\semantic\dist\components\modal.min.css" />
+    <Content Include="app\lib\semantic\dist\components\modal.min.js" />
+    <Content Include="app\lib\semantic\dist\components\nag.css" />
+    <Content Include="app\lib\semantic\dist\components\nag.js" />
+    <Content Include="app\lib\semantic\dist\components\nag.min.css" />
+    <Content Include="app\lib\semantic\dist\components\nag.min.js" />
+    <Content Include="app\lib\semantic\dist\components\popup.css" />
+    <Content Include="app\lib\semantic\dist\components\popup.js" />
+    <Content Include="app\lib\semantic\dist\components\popup.min.css" />
+    <Content Include="app\lib\semantic\dist\components\popup.min.js" />
+    <Content Include="app\lib\semantic\dist\components\progress.css" />
+    <Content Include="app\lib\semantic\dist\components\progress.js" />
+    <Content Include="app\lib\semantic\dist\components\progress.min.css" />
+    <Content Include="app\lib\semantic\dist\components\progress.min.js" />
+    <Content Include="app\lib\semantic\dist\components\rail.css" />
+    <Content Include="app\lib\semantic\dist\components\rail.min.css" />
+    <Content Include="app\lib\semantic\dist\components\rating.css" />
+    <Content Include="app\lib\semantic\dist\components\rating.js" />
+    <Content Include="app\lib\semantic\dist\components\rating.min.css" />
+    <Content Include="app\lib\semantic\dist\components\rating.min.js" />
+    <Content Include="app\lib\semantic\dist\components\reset.css" />
+    <Content Include="app\lib\semantic\dist\components\reset.min.css" />
+    <Content Include="app\lib\semantic\dist\components\reveal.css" />
+    <Content Include="app\lib\semantic\dist\components\reveal.min.css" />
+    <Content Include="app\lib\semantic\dist\components\search.css" />
+    <Content Include="app\lib\semantic\dist\components\search.js" />
+    <Content Include="app\lib\semantic\dist\components\search.min.css" />
+    <Content Include="app\lib\semantic\dist\components\search.min.js" />
+    <Content Include="app\lib\semantic\dist\components\segment.css" />
+    <Content Include="app\lib\semantic\dist\components\segment.min.css" />
+    <Content Include="app\lib\semantic\dist\components\shape.css" />
+    <Content Include="app\lib\semantic\dist\components\shape.js" />
+    <Content Include="app\lib\semantic\dist\components\shape.min.css" />
+    <Content Include="app\lib\semantic\dist\components\shape.min.js" />
+    <Content Include="app\lib\semantic\dist\components\sidebar.css" />
+    <Content Include="app\lib\semantic\dist\components\sidebar.js" />
+    <Content Include="app\lib\semantic\dist\components\sidebar.min.css" />
+    <Content Include="app\lib\semantic\dist\components\sidebar.min.js" />
+    <Content Include="app\lib\semantic\dist\components\site.css" />
+    <Content Include="app\lib\semantic\dist\components\site.js" />
+    <Content Include="app\lib\semantic\dist\components\site.min.css" />
+    <Content Include="app\lib\semantic\dist\components\site.min.js" />
+    <Content Include="app\lib\semantic\dist\components\state.js" />
+    <Content Include="app\lib\semantic\dist\components\state.min.js" />
+    <Content Include="app\lib\semantic\dist\components\statistic.css" />
+    <Content Include="app\lib\semantic\dist\components\statistic.min.css" />
+    <Content Include="app\lib\semantic\dist\components\step.css" />
+    <Content Include="app\lib\semantic\dist\components\step.min.css" />
+    <Content Include="app\lib\semantic\dist\components\sticky.css" />
+    <Content Include="app\lib\semantic\dist\components\sticky.js" />
+    <Content Include="app\lib\semantic\dist\components\sticky.min.css" />
+    <Content Include="app\lib\semantic\dist\components\sticky.min.js" />
+    <Content Include="app\lib\semantic\dist\components\tab.css" />
+    <Content Include="app\lib\semantic\dist\components\tab.js" />
+    <Content Include="app\lib\semantic\dist\components\tab.min.css" />
+    <Content Include="app\lib\semantic\dist\components\tab.min.js" />
+    <Content Include="app\lib\semantic\dist\components\table.css" />
+    <Content Include="app\lib\semantic\dist\components\table.min.css" />
+    <Content Include="app\lib\semantic\dist\components\transition.css" />
+    <Content Include="app\lib\semantic\dist\components\transition.js" />
+    <Content Include="app\lib\semantic\dist\components\transition.min.css" />
+    <Content Include="app\lib\semantic\dist\components\transition.min.js" />
+    <Content Include="app\lib\semantic\dist\components\video.css" />
+    <Content Include="app\lib\semantic\dist\components\video.js" />
+    <Content Include="app\lib\semantic\dist\components\video.min.css" />
+    <Content Include="app\lib\semantic\dist\components\video.min.js" />
+    <Content Include="app\lib\semantic\dist\components\visibility.js" />
+    <Content Include="app\lib\semantic\dist\components\visibility.min.js" />
+    <Content Include="app\lib\semantic\dist\components\visit.js" />
+    <Content Include="app\lib\semantic\dist\components\visit.min.js" />
+    <Content Include="app\lib\semantic\dist\semantic.css" />
+    <Content Include="app\lib\semantic\dist\semantic.js" />
+    <Content Include="app\lib\semantic\dist\semantic.min.css" />
+    <Content Include="app\lib\semantic\dist\semantic.min.js" />
+    <Content Include="app\lib\semantic\dist\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\images\flags.png" />
+    <Content Include="app\lib\semantic\dist\themes\github\assets\fonts\octicons.svg" />
+    <Content Include="app\lib\semantic\dist\themes\material\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\examples\assets\images\avatar\nan.jpg" />
+    <Content Include="app\lib\semantic\examples\assets\images\avatar\tom.jpg" />
+    <Content Include="app\lib\semantic\examples\assets\images\bg.jpg" />
+    <Content Include="app\lib\semantic\examples\assets\images\logo.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\centered-paragraph.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\image-square.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\image-text.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\image.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\media-paragraph-alt.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\media-paragraph.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\paragraph.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\short-paragraph.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\square-image.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\text-image.png" />
+    <Content Include="app\lib\semantic\examples\assets\images\wireframe\white-image.png" />
+    <Content Include="app\lib\semantic\examples\assets\library\iframe-content.js" />
+    <Content Include="app\lib\semantic\examples\assets\library\iframe.js" />
+    <Content Include="app\lib\semantic\examples\assets\library\jquery.min.js" />
+    <Content Include="app\lib\semantic\examples\assets\show-examples.js" />
+    <Content Include="app\lib\semantic\examples\attached.html" />
+    <Content Include="app\lib\semantic\examples\bootstrap.html" />
+    <Content Include="app\lib\semantic\examples\components\button.html" />
+    <Content Include="app\lib\semantic\examples\components\card.html" />
+    <Content Include="app\lib\semantic\examples\components\input.html" />
+    <Content Include="app\lib\semantic\examples\components\menu.html" />
+    <Content Include="app\lib\semantic\examples\components\site.html" />
+    <Content Include="app\lib\semantic\examples\components\table.html" />
+    <Content Include="app\lib\semantic\examples\fixed.html" />
+    <Content Include="app\lib\semantic\examples\grid.html" />
+    <Content Include="app\lib\semantic\examples\homepage.html" />
+    <Content Include="app\lib\semantic\examples\login.html" />
+    <Content Include="app\lib\semantic\examples\responsive.html" />
+    <Content Include="app\lib\semantic\examples\sticky.html" />
+    <Content Include="app\lib\semantic\examples\theming.html" />
+    <Content Include="app\lib\semantic\gulpfile.js" />
+    <Content Include="app\lib\semantic\karma.conf.js" />
+    <Content Include="app\lib\semantic\logo.png" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\api.js" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\colorize.js" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\form.js" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\state.js" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\visibility.js" />
+    <Content Include="app\lib\semantic\src\definitions\behaviors\visit.js" />
+    <Content Include="app\lib\semantic\src\definitions\globals\site.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\accordion.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\checkbox.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\dimmer.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\dropdown.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\embed.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\modal.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\nag.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\popup.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\progress.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\rating.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\search.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\shape.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\sidebar.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\sticky.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\tab.js" />
+    <Content Include="app\lib\semantic\src\definitions\modules\transition.js" />
+    <Content Include="app\lib\semantic\src\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\images\flags.png" />
+    <Content Include="app\lib\semantic\src\themes\github\assets\fonts\octicons.svg" />
+    <Content Include="app\lib\semantic\src\themes\material\assets\fonts\icons.svg" />
+    <Content Include="app\lib\semantic\tasks\admin\components\create.js" />
+    <Content Include="app\lib\semantic\tasks\admin\components\init.js" />
+    <Content Include="app\lib\semantic\tasks\admin\components\update.js" />
+    <Content Include="app\lib\semantic\tasks\admin\distributions\create.js" />
+    <Content Include="app\lib\semantic\tasks\admin\distributions\init.js" />
+    <Content Include="app\lib\semantic\tasks\admin\distributions\update.js" />
+    <Content Include="app\lib\semantic\tasks\admin\publish.js" />
+    <Content Include="app\lib\semantic\tasks\admin\register.js" />
+    <Content Include="app\lib\semantic\tasks\admin\release.js" />
+    <Content Include="app\lib\semantic\tasks\build.js" />
+    <Content Include="app\lib\semantic\tasks\build\assets.js" />
+    <Content Include="app\lib\semantic\tasks\build\css.js" />
+    <Content Include="app\lib\semantic\tasks\build\javascript.js" />
+    <Content Include="app\lib\semantic\tasks\check-install.js" />
+    <Content Include="app\lib\semantic\tasks\clean.js" />
+    <Content Include="app\lib\semantic\tasks\collections\admin.js" />
+    <Content Include="app\lib\semantic\tasks\collections\build.js" />
+    <Content Include="app\lib\semantic\tasks\collections\internal.js" />
+    <Content Include="app\lib\semantic\tasks\collections\rtl.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\github.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\oauth.example.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\release.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\component-package.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\css-package.js" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\less-package.js" />
+    <Content Include="app\lib\semantic\tasks\config\defaults.js" />
+    <Content Include="app\lib\semantic\tasks\config\docs.js" />
+    <Content Include="app\lib\semantic\tasks\config\npm\gulpfile.js" />
+    <Content Include="app\lib\semantic\tasks\config\project\config.js" />
+    <Content Include="app\lib\semantic\tasks\config\project\install.js" />
+    <Content Include="app\lib\semantic\tasks\config\project\release.js" />
+    <Content Include="app\lib\semantic\tasks\config\tasks.js" />
+    <Content Include="app\lib\semantic\tasks\config\user.js" />
+    <Content Include="app\lib\semantic\tasks\docs\build.js" />
+    <Content Include="app\lib\semantic\tasks\docs\metadata.js" />
+    <Content Include="app\lib\semantic\tasks\docs\serve.js" />
+    <Content Include="app\lib\semantic\tasks\install.js" />
+    <Content Include="app\lib\semantic\tasks\rtl\build.js" />
+    <Content Include="app\lib\semantic\tasks\rtl\watch.js" />
+    <Content Include="app\lib\semantic\tasks\version.js" />
+    <Content Include="app\lib\semantic\tasks\watch.js" />
+    <Content Include="app\services\auth.service.js" />
+    <Content Include="app\services\datagateway.service.js" />
+    <Content Include="app\services\_index.js" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\img\calendar.png" />
+    <Content Include="assets\img\christian.jpg" />
+    <Content Include="assets\img\jenny.jpg" />
+    <Content Include="assets\img\logo-2.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\nan.jpg" />
+    <Content Include="assets\img\people.png" />
+    <Content Include="assets\img\place.png" />
+    <Content Include="build\controllers.js" />
+    <Content Include="build\mmt.app.js" />
+    <Content Include="build\services.js" />
+    <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
+    <Content Include="Models\Database\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Database\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Api\LoginController.cs" />
+    <Compile Include="Controllers\Api\MeetingsController.cs" />
+    <Compile Include="Controllers\Api\RegisterController.cs" />
+    <Compile Include="Controllers\SecureController\SecureApi.cs" />
+    <Compile Include="Controllers\SecureController\SecureController.cs" />
+    <Compile Include="Controllers\Api\TeamController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\HttpResponseExceptionHelper.cs" />
+    <Compile Include="Helper\JwtHelper.cs" />
+    <Compile Include="Helper\PasswordHash.cs" />
+    <Compile Include="Models\CategoryFilter.cs" />
+    <Compile Include="Models\Database\C__RefactorLog.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\Meeting.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\Model.Context.cs">
+      <DependentUpon>Model.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Database\Model.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Database\Model.Designer.cs">
+      <DependentUpon>Model.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Database\Team.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\Team_Meeting.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\Team_User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginMessage.cs" />
+    <Compile Include="Models\MeetingModel.cs" />
+    <Compile Include="Models\RegisterMessage.cs" />
+    <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UserToken.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AbstractService.cs" />
+    <Compile Include="Service\ConnexionService.cs" />
+    <Compile Include="Service\MeetingService.cs" />
+    <Compile Include="Service\TeamService.cs" />
+    <Compile Include="Yelp\YelpApiClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="app\lib\angular\.bower.json" />
+    <Content Include="app\lib\angular\angular.min.js.gzip" />
+    <Content Include="app\lib\angular\angular.min.js.map" />
+    <Content Include="app\lib\angular\bower.json" />
+    <Content Include="app\lib\angular\package.json" />
+    <Content Include="app\lib\angular\README.md" />
+    <Content Include="app\lib\angular-translate\.bower.json" />
+    <Content Include="app\lib\angular-translate\bower.json" />
+    <Content Include="app\lib\angular-translate\README.md" />
+    <Content Include="app\lib\angular-ui-router\.bower.json" />
+    <Content Include="app\lib\angular-ui-router\bower.json" />
+    <Content Include="app\lib\angular-ui-router\CHANGELOG.md" />
+    <Content Include="app\lib\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="app\lib\angular-ui-router\LICENSE" />
+    <Content Include="app\lib\angular-ui-router\README.md" />
+    <Content Include="app\lib\jquery\.bower.json" />
+    <Content Include="app\lib\jquery\bower.json" />
+    <Content Include="app\lib\jquery\dist\jquery.min.map" />
+    <Content Include="app\lib\jquery\dist\jquery.slim.min.map" />
+    <Content Include="app\lib\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="app\lib\jquery\README.md" />
+    <Content Include="app\lib\jquery\src\.eslintrc" />
+    <Content Include="app\lib\ng-dialog\.bower.json" />
+    <Content Include="app\lib\ng-dialog\bower.json" />
+    <Content Include="app\lib\ng-dialog\CHANGELOG.md" />
+    <Content Include="app\lib\ng-dialog\CONTRIBUTING.md" />
+    <Content Include="app\lib\ng-dialog\package.json" />
+    <Content Include="app\lib\ng-dialog\README.md" />
+    <Content Include="app\lib\semantic\.bower.json" />
+    <Content Include="app\lib\semantic\.csscomb.json" />
+    <Content Include="app\lib\semantic\.csslintrc" />
+    <Content Include="app\lib\semantic\.jshintrc" />
+    <Content Include="app\lib\semantic\bower.json" />
+    <Content Include="app\lib\semantic\composer.json" />
+    <Content Include="app\lib\semantic\CONTRIBUTING.md" />
+    <Content Include="app\lib\semantic\dist\themes\basic\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\dist\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\dist\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.otf" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\dist\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="app\lib\semantic\dist\themes\github\assets\fonts\octicons-local.ttf" />
+    <Content Include="app\lib\semantic\dist\themes\github\assets\fonts\octicons.ttf" />
+    <Content Include="app\lib\semantic\dist\themes\github\assets\fonts\octicons.woff" />
+    <Content Include="app\lib\semantic\dist\themes\material\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\dist\themes\material\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\dist\themes\material\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\LICENSE.md" />
+    <Content Include="app\lib\semantic\package.json" />
+    <Content Include="app\lib\semantic\README.md" />
+    <Content Include="app\lib\semantic\RELEASE-NOTES.md" />
+    <Content Include="app\lib\semantic\semantic.json.example" />
+    <Content Include="app\lib\semantic\src\_site\collections\breadcrumb.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\breadcrumb.variables" />
+    <Content Include="app\lib\semantic\src\_site\collections\form.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\form.variables" />
+    <Content Include="app\lib\semantic\src\_site\collections\grid.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\grid.variables" />
+    <Content Include="app\lib\semantic\src\_site\collections\menu.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\menu.variables" />
+    <Content Include="app\lib\semantic\src\_site\collections\message.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\message.variables" />
+    <Content Include="app\lib\semantic\src\_site\collections\table.overrides" />
+    <Content Include="app\lib\semantic\src\_site\collections\table.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\container.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\container.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\divider.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\divider.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\flag.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\flag.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\icon.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\icon.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\image.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\image.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\input.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\input.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\label.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\label.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\list.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\list.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\loader.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\loader.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\rail.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\rail.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\reveal.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\reveal.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\segment.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\segment.variables" />
+    <Content Include="app\lib\semantic\src\_site\elements\step.overrides" />
+    <Content Include="app\lib\semantic\src\_site\elements\step.variables" />
+    <Content Include="app\lib\semantic\src\_site\globals\reset.overrides" />
+    <Content Include="app\lib\semantic\src\_site\globals\reset.variables" />
+    <Content Include="app\lib\semantic\src\_site\globals\site.overrides" />
+    <Content Include="app\lib\semantic\src\_site\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\accordion.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\accordion.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\chatroom.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\chatroom.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\checkbox.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\checkbox.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\dimmer.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\dimmer.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\dropdown.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\dropdown.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\embed.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\embed.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\modal.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\modal.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\nag.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\nag.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\popup.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\popup.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\progress.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\progress.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\rating.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\rating.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\search.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\search.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\shape.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\shape.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\sidebar.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\sidebar.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\sticky.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\sticky.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\tab.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\tab.variables" />
+    <Content Include="app\lib\semantic\src\_site\modules\transition.overrides" />
+    <Content Include="app\lib\semantic\src\_site\modules\transition.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\ad.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\ad.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\card.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\card.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\comment.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\comment.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\feed.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\feed.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\item.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\item.variables" />
+    <Content Include="app\lib\semantic\src\_site\views\statistic.overrides" />
+    <Content Include="app\lib\semantic\src\_site\views\statistic.variables" />
+    <Content Include="app\lib\semantic\src\definitions\collections\breadcrumb.less" />
+    <Content Include="app\lib\semantic\src\definitions\collections\form.less" />
+    <Content Include="app\lib\semantic\src\definitions\collections\grid.less" />
+    <Content Include="app\lib\semantic\src\definitions\collections\menu.less" />
+    <Content Include="app\lib\semantic\src\definitions\collections\message.less" />
+    <Content Include="app\lib\semantic\src\definitions\collections\table.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\button.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\container.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\divider.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\flag.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\header.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\icon.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\image.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\input.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\label.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\list.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\loader.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\rail.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\reveal.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\segment.less" />
+    <Content Include="app\lib\semantic\src\definitions\elements\step.less" />
+    <Content Include="app\lib\semantic\src\definitions\globals\reset.less" />
+    <Content Include="app\lib\semantic\src\definitions\globals\site.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\accordion.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\checkbox.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\dimmer.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\dropdown.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\embed.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\modal.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\nag.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\popup.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\progress.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\rating.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\search.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\shape.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\sidebar.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\sticky.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\tab.less" />
+    <Content Include="app\lib\semantic\src\definitions\modules\transition.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\ad.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\card.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\comment.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\feed.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\item.less" />
+    <Content Include="app\lib\semantic\src\definitions\views\statistic.less" />
+    <Content Include="app\lib\semantic\src\README.md" />
+    <Content Include="app\lib\semantic\src\semantic.less" />
+    <Content Include="app\lib\semantic\src\theme.config.example" />
+    <Content Include="app\lib\semantic\src\theme.less" />
+    <Content Include="app\lib\semantic\src\themes\amazon\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\amazon\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\amazon\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\src\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\src\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\src\themes\basic\collections\table.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\collections\table.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\icon.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\icon.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\step.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\elements\step.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\globals\reset.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\globals\reset.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\modules\progress.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\modules\progress.variables" />
+    <Content Include="app\lib\semantic\src\themes\basic\views\card.overrides" />
+    <Content Include="app\lib\semantic\src\themes\basic\views\card.variables" />
+    <Content Include="app\lib\semantic\src\themes\bookish\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\themes\bookish\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\bootstrap3\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\bootstrap3\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\collections\form.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\collections\form.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\collections\menu.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\collections\menu.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\modules\accordion.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\modules\accordion.variables" />
+    <Content Include="app\lib\semantic\src\themes\chubby\views\comment.overrides" />
+    <Content Include="app\lib\semantic\src\themes\chubby\views\comment.variables" />
+    <Content Include="app\lib\semantic\src\themes\classic\collections\table.overrides" />
+    <Content Include="app\lib\semantic\src\themes\classic\collections\table.variables" />
+    <Content Include="app\lib\semantic\src\themes\classic\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\classic\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\classic\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\themes\classic\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\classic\modules\progress.overrides" />
+    <Content Include="app\lib\semantic\src\themes\classic\modules\progress.variables" />
+    <Content Include="app\lib\semantic\src\themes\classic\views\card.overrides" />
+    <Content Include="app\lib\semantic\src\themes\classic\views\card.variables" />
+    <Content Include="app\lib\semantic\src\themes\colored\modules\checkbox.overrides" />
+    <Content Include="app\lib\semantic\src\themes\colored\modules\checkbox.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\src\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\breadcrumb.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\breadcrumb.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\form.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\form.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\grid.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\grid.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\menu.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\menu.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\message.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\message.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\table.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\collections\table.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\container.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\container.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\divider.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\divider.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\flag.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\flag.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\icon.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\icon.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\image.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\image.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\input.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\input.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\label.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\label.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\list.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\list.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\loader.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\loader.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\rail.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\rail.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\reveal.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\reveal.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\segment.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\segment.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\step.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\elements\step.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\globals\reset.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\globals\reset.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\globals\site.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\accordion.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\accordion.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\chatroom.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\chatroom.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\checkbox.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\checkbox.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\dimmer.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\dimmer.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\dropdown.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\dropdown.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\embed.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\embed.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\modal.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\modal.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\nag.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\nag.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\popup.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\popup.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\progress.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\progress.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\rating.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\rating.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\search.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\search.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\shape.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\shape.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\sidebar.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\sidebar.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\sticky.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\sticky.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\tab.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\tab.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\transition.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\modules\transition.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\ad.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\ad.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\card.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\card.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\comment.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\comment.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\feed.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\feed.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\item.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\item.variables" />
+    <Content Include="app\lib\semantic\src\themes\default\views\statistic.overrides" />
+    <Content Include="app\lib\semantic\src\themes\default\views\statistic.variables" />
+    <Content Include="app\lib\semantic\src\themes\duo\elements\loader.overrides" />
+    <Content Include="app\lib\semantic\src\themes\duo\elements\loader.variables" />
+    <Content Include="app\lib\semantic\src\themes\fixed-width\collections\grid.overrides" />
+    <Content Include="app\lib\semantic\src\themes\fixed-width\collections\grid.variables" />
+    <Content Include="app\lib\semantic\src\themes\fixed-width\modules\modal.overrides" />
+    <Content Include="app\lib\semantic\src\themes\fixed-width\modules\modal.variables" />
+    <Content Include="app\lib\semantic\src\themes\flat\collections\form.overrides" />
+    <Content Include="app\lib\semantic\src\themes\flat\collections\form.variables" />
+    <Content Include="app\lib\semantic\src\themes\flat\globals\site.overrides" />
+    <Content Include="app\lib\semantic\src\themes\flat\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\assets\fonts\octicons-local.ttf" />
+    <Content Include="app\lib\semantic\src\themes\github\assets\fonts\octicons.ttf" />
+    <Content Include="app\lib\semantic\src\themes\github\assets\fonts\octicons.woff" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\breadcrumb.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\form.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\form.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\grid.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\menu.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\menu.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\message.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\message.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\collections\table.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\icon.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\icon.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\image.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\input.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\input.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\label.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\label.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\segment.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\segment.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\step.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\elements\step.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\modules\dropdown.overrides" />
+    <Content Include="app\lib\semantic\src\themes\github\modules\dropdown.variables" />
+    <Content Include="app\lib\semantic\src\themes\github\modules\popup.variables" />
+    <Content Include="app\lib\semantic\src\themes\gmail\collections\message.overrides" />
+    <Content Include="app\lib\semantic\src\themes\gmail\collections\message.variables" />
+    <Content Include="app\lib\semantic\src\themes\instagram\views\card.overrides" />
+    <Content Include="app\lib\semantic\src\themes\instagram\views\card.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\assets\fonts\icons.eot" />
+    <Content Include="app\lib\semantic\src\themes\material\assets\fonts\icons.ttf" />
+    <Content Include="app\lib\semantic\src\themes\material\assets\fonts\icons.woff" />
+    <Content Include="app\lib\semantic\src\themes\material\collections\menu.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\collections\menu.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\header.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\header.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\icon.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\elements\icon.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\globals\site.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\modules\dropdown.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\modules\dropdown.variables" />
+    <Content Include="app\lib\semantic\src\themes\material\modules\modal.overrides" />
+    <Content Include="app\lib\semantic\src\themes\material\modules\modal.variables" />
+    <Content Include="app\lib\semantic\src\themes\pulsar\elements\loader.overrides" />
+    <Content Include="app\lib\semantic\src\themes\pulsar\elements\loader.variables" />
+    <Content Include="app\lib\semantic\src\themes\raised\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\raised\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\resetcss\globals\reset.overrides" />
+    <Content Include="app\lib\semantic\src\themes\resetcss\globals\reset.variables" />
+    <Content Include="app\lib\semantic\src\themes\round\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\round\elements\button.variables" />
+    <Content Include="app\lib\semantic\src\themes\rtl\globals\site.overrides" />
+    <Content Include="app\lib\semantic\src\themes\rtl\globals\site.variables" />
+    <Content Include="app\lib\semantic\src\themes\striped\modules\progress.overrides" />
+    <Content Include="app\lib\semantic\src\themes\striped\modules\progress.variables" />
+    <Content Include="app\lib\semantic\src\themes\timeline\views\feed.overrides" />
+    <Content Include="app\lib\semantic\src\themes\timeline\views\feed.variables" />
+    <Content Include="app\lib\semantic\src\themes\twitter\elements\button.overrides" />
+    <Content Include="app\lib\semantic\src\themes\twitter\elements\button.variables" />
+    <Content Include="app\lib\semantic\tasks\collections\README.md" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\bower.json" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\composer.json" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\package.json" />
+    <Content Include="app\lib\semantic\tasks\config\admin\templates\README.md" />
+    <Content Include="app\lib\semantic\tasks\README.md" />
+    <Content Include="assets\scss\color.scss" />
+    <Content Include="assets\scss\dashboard\side-bar.scss" />
+    <Content Include="assets\scss\fonts.scss" />
+    <Content Include="assets\scss\general\body.scss" />
+    <Content Include="assets\scss\login\login.scss" />
+    <Content Include="assets\scss\main.scss" />
+    <Content Include="assets\scss\register\register.scss" />
+    <Content Include="assets\scss\teams\teams.scss" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
+    <EntityDeploy Include="Models\Database\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Database\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Dashboard\Teams.cshtml" />
+    <Content Include="app\lib\angular-cookies\.bower.json" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.min.js.map" />
+    <Content Include="app\lib\angular-cookies\bower.json" />
+    <Content Include="app\lib\angular-cookies\LICENSE.md" />
+    <Content Include="app\lib\angular-cookies\package.json" />
+    <Content Include="app\lib\angular-cookies\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61638</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61638/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

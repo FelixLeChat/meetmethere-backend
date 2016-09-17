@@ -1,0 +1,154 @@
+<div class="ui vertical segment padded teams">
+	<div class="row">
+		<h1 class="teams--header">Meet Me There</h1>
+	</div>
+  	<div class="row teams--title">
+      	<p class="teams--header"> 
+      		<img class="teams--img" src="./assets/img/people.png">
+      		Teams
+      		<button id="add-team-button" class="circular right floated ui icon button teams--button">
+      			<i class="icon plus"></i>
+      		</button>
+      	</p>
+  	</div>
+</div>
+	<!-- TODO: ng-repeat for all teams -->
+<div class="ui padded segment">
+	<div class="ui right aligned grid">
+    	<div class="left floated left aligned eight wide column">
+			<h2>Name of team</h2>
+			<p>Description of team that is very long and exciting, huh? We are such a cool team, yehaw.</p>
+			<!-- TODO: put in correct icons -->
+			<button class="ui button">
+  				<img class="team--button" src="./assets/img/calendar.png">
+  			</button>
+  			<button class="ui button">
+  				<img class="team--button" src="./assets/img/calendar.png">
+  			</button>
+			</div>
+			<div class="right floated right aligned eight wide column">
+				<!-- TODO: ng-repeat for all team members -->
+				<a class="ui large yellow image label team--member">
+			  	<img src="./assets/img/christian.jpg">
+			  	Christian
+			  	<div class="detail">Strategist</div>
+			</a><br><br>
+
+			<!-- TODO: remove. just for demo purposes -->
+			<a class="ui large teal image label team--member">
+			  	<img src="./assets/img/jenny.jpg">
+			  	Jenny
+			  	<div class="detail">Designer</div>
+			</a><br><br>
+			<a class="ui large grey image label team--member">
+			  	<img src="./assets/img/nan.jpg">
+			  	Amanda
+			  	<div class="detail">Design Thinker</div>
+			</a><br><br>
+		</div>
+	</div>
+</div>			
+
+<!-- TODO: remove. just for demo purposes -->
+<div class="ui padded segment">
+	<div class="ui right aligned grid">
+    	<div class="left floated left aligned eight wide column">
+			<h2>Name of team</h2>
+			<p>Description of team that is very long and exciting, huh? We are such a cool team, yehaw.</p>
+			<!-- TODO: put in correct icons -->
+			<button class="ui button">
+  				<img class="team--button" src="./assets/img/calendar.png">
+  			</button>
+  			<button class="ui button">
+  				<img class="team--button" src="./assets/img/calendar.png">
+  			</button>
+			</div>
+			<div class="right floated right aligned eight wide column">
+				<!-- TODO: ng-repeat for all team members -->
+				<a class="ui large yellow image label team--member">
+			  	<img src="./assets/img/christian.jpg">
+			  	Christian
+			  	<div class="detail">Strategist</div>
+			</a><br><br>
+			<a class="ui large teal image label team--member">
+			  	<img src="./assets/img/jenny.jpg">
+			  	Jenny
+			  	<div class="detail">Designer</div>
+			</a><br><br>
+			<a class="ui large grey image label team--member">
+			  	<img src="./assets/img/nan.jpg">
+			  	Amanda
+			  	<div class="detail">Design Thinker</div>
+			</a><br><br>
+		</div>
+	</div>
+</div>	
+
+<div class="ui modal">
+  	<i class="close icon"></i>
+  	<div class="header">
+    	Create a team
+  	</div>
+    <form class="ui form">
+    	<div class="ui stacked segment">
+    		<div class="field">
+                <div class="ui left icon input">
+                    <i class="users icon"></i>
+                    <input ng-model="sctrl.name" type="text" name="name" placeholder="Team name">
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="info icon"></i>
+                    <textarea class="create--description" rows="1" ng-model="sctrl.description" type="text" name="description" placeholder="Team description"></textarea>
+                </div>
+            </div>
+
+			<h4 class="ui dividing header">Members</h4>
+			<!-- TODO: ng-repeat for each team member? -->
+			<div class="ui right aligned grid">
+		    	<div class="left floated left aligned eight wide column">
+			      	<!-- TODO: typeahead -->
+			      	<div class="field">
+	                    <div class="ui left icon input">
+	                        <i class="user icon"></i>
+	                        <input ng-model="sctrl.username" type="text" name="username" placeholder="Username">
+	                    </div>
+	                </div>
+			    </div>
+		    	<div class="left floated left aligned seven wide column">
+			      	<div class="field">
+	                    <div class="ui left icon input">
+	                        <i class="black tie icon"></i>
+	                        <input ng-model="sctrl.role" type="text" name="role" placeholder="Role">
+	                    </div>
+	                </div>
+			    </div>
+		    	<div class="left floated right aligned one wide column">
+			    	<!-- TODO: remove user from team -->
+			    	<button class="circular grey right floated ui icon button">
+		      			<i class="icon minus"></i>
+		      		</button>
+			    </div>
+			</div>
+		 	<div class="ui right aligned grid">
+			 	<div class="left floated left aligned column">
+			    	<!-- TODO: add action to show new set of empty fields -->
+			    	<button class="circular create--positive ui icon button">
+			      		<i class="icon plus"></i>
+			      	</button>
+			    </div>
+		    </div>
+	  	</div>
+	</form>
+  	<div class="actions">
+    	<div class="ui grey deny button">
+      		Cancel
+    	</div>
+    	<div class="ui create--positive right labeled icon button">
+      		Create
+      	<i class="checkmark icon"></i>
+    	</div>
+  	</div>
+</div>
+<script type="text/javascript">$("#add-team-button").click(function() {$('.ui.modal').modal('show');});</script>

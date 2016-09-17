@@ -1,0 +1,47 @@
+.teams {
+	height: 150px;
+
+	&--header {
+		color: $light-persian-green;
+	}
+
+	&--img {
+		height: 30px;
+	}
+
+	p {
+		font-size: 30px;
+	}
+
+	&--button {
+		background-color: $light-persian-green !important;
+	}
+
+	&--title {
+		margin-top: 45px;
+	}
+}
+
+.pusher {
+	padding-right: 260px;
+}
+
+.team {
+	&--button {
+		height: 30px;
+	},
+
+	&--member {
+		margin-bottom: 14px;
+	}
+}
+
+.create {
+	&--positive {
+		background-color: $light-persian-green !important;
+	},
+
+	&--description {
+		padding-left: 37.4px !important;
+	}
+}
