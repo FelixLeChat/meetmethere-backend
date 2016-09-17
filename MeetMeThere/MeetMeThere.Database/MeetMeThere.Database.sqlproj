@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{876b6c6b-3c3a-41bd-a1c6-21dda7359a67}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -62,5 +62,14 @@
   <ItemGroup>
     <Build Include="Models\Meeting.sql" />
     <Build Include="Models\User.sql" />
+    <Build Include="Models\Team.sql" />
+    <Build Include="Models\Team-Meeting.sql" />
+    <Build Include="Models\Team-User.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MeetMeThere.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MeetMeThere.Database.publish.xml" />
   </ItemGroup>
 </Project>

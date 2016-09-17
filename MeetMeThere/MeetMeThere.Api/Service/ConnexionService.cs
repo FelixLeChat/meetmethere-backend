@@ -8,7 +8,7 @@ namespace MeetMeThere.Api.Service
     {
         public string Register(RegisterMessage register)
         {
-            
+            return "";
         }
     }
 }
