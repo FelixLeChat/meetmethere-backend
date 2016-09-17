@@ -576,6 +576,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Google\Google.cs" />
+    <Compile Include="Google\Model\Models.cs" />
     <Compile Include="Helper\HttpResponseExceptionHelper.cs" />
     <Compile Include="Helper\ImageProvider.cs" />
     <Compile Include="Helper\JwtHelper.cs" />
