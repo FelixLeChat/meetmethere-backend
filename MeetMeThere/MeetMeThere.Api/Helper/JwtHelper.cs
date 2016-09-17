@@ -64,7 +64,7 @@ namespace MeetMeThere.Api.Helper
                 if (jsonPayload.ContainsKey("username"))
                     userToken.Username = (string)jsonPayload["username"];
                 if (jsonPayload.ContainsKey("userId"))
-                    userToken.UserId = (string)jsonPayload["userId"];
+                    userToken.UserId = int.Parse((string)jsonPayload["userId"]);
                 if (jsonPayload.ContainsKey("Expiration"))
                     userToken.ExpirationDate = (DateTime)jsonPayload["Expiration"];
 

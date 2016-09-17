@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="253048ec0aed4cff886504aac5c9bd08" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="meetmethereModel.C__RefactorLog" Width="1.5" PointX="7.875" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="meetmethereModel.Meeting" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+      <Diagram DiagramId="0e3c9d3a1107432bb112236ab5492e14" Name="Diagram1">
+        <EntityTypeShape EntityType="meetmethereModel.C__RefactorLog" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="meetmethereModel.Meeting" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="meetmethereModel.Team" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="meetmethereModel.Team_Meeting" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="meetmethereModel.Team_User" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="meetmethereModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="meetmethereModel.Team_User" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="meetmethereModel.User" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="meetmethereModel.FK_Team_Meeting_Meeting" ManuallyRouted="false" />
         <AssociationConnector Association="meetmethereModel.FK_Team_Meeting_Team" ManuallyRouted="false" />
         <AssociationConnector Association="meetmethereModel.FK_Team_User_Team" ManuallyRouted="false" />

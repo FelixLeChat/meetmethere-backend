@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Meeting]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [Name] VARCHAR(MAX) NULL DEFAULT null, 
     [NeedWifi] BIT NULL DEFAULT 0, 
     [NeedElectricity] BIT NULL DEFAULT 0, 

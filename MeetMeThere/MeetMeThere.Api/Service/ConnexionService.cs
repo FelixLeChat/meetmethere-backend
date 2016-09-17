@@ -42,16 +42,16 @@ namespace MeetMeThere.Api.Service
                     throw HttpResponseExceptionHelper.Create("User Exist",
                         HttpStatusCode.BadRequest);
 
-                // create new user
                 newUser = new User()
                 {
                     Username = register.Username,
                     HashPassword = PasswordHash.CreateHash(register.Password),
                     Email = register.Email
                 };
+                // create new user
+                db.Users.Add(newUser);
 
                 // Add user
-                newUser = this.CreateUser(newUser);
                 db.SaveChanges();
             }
 
@@ -75,23 +75,13 @@ namespace MeetMeThere.Api.Service
         }
 
         #region Private
-        private User CreateUser(User user)
-        {
-            using (var db = new meetmethereEntities())
-            {
-                // save database
-                var newUser = db.Users.Add(user);
-                db.SaveChanges();
-                return newUser;
-            }
-        }
-
         private string GetToken(User user)
         {
             // Generate token
             var token = new UserToken()
             {
-                Username = user.Username
+                Username = user.Username,
+                UserId = user.Id
             };
             return JwtHelper.EncodeToken(token);
         }

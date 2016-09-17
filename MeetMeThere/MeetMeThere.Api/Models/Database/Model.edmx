@@ -15,7 +15,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="NeedWifi" Type="bit" />
           <Property Name="NeedElectricity" Type="bit" />
@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="Description" Type="varchar(max)" />
         </EntityType>
@@ -35,7 +35,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeamId" Type="int" />
           <Property Name="MeetingId" Type="int" />
         </EntityType>
@@ -43,7 +43,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeamId" Type="int" />
           <Property Name="UserId" Type="int" />
         </EntityType>
@@ -51,7 +51,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="varchar(max)" />
           <Property Name="Username" Type="varchar(max)" />
           <Property Name="HashPassword" Type="varchar(max)" />
@@ -144,7 +144,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NeedWifi" Type="Boolean" />
           <Property Name="NeedElectricity" Type="Boolean" />
@@ -157,7 +157,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Team_Meeting" Relationship="Self.FK_Team_Meeting_Team" FromRole="Team" ToRole="Team_Meeting" />
@@ -167,7 +167,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeamId" Type="Int32" />
           <Property Name="MeetingId" Type="Int32" />
           <NavigationProperty Name="Meeting" Relationship="Self.FK_Team_Meeting_Meeting" FromRole="Team_Meeting" ToRole="Meeting" />
@@ -177,7 +177,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeamId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="Team" Relationship="Self.FK_Team_User_Team" FromRole="Team_User" ToRole="Team" />
@@ -187,7 +187,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="HashPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
