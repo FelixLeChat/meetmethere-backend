@@ -1,3 +1,5 @@
+/// <binding BeforeBuild='default' />
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
@@ -39,7 +41,7 @@ var paths = {
   ]
 };
 
-gulp.task('default', ['clean', 'build:dev']);
+gulp.task('default', ['clean', 'build:dev', 'watch']);
 
 gulp.task('clean', function(done) {
   del.sync('./build/*.js');
@@ -139,7 +141,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.controllers, ['controllers']);
-  gulp.watch(paths.services, ['services']);
-  gulp.watch(paths.directives, ['directives']);
+  gulp.watch(paths.controllers, ['build:dev']);
+  gulp.watch(paths.services, ['build:dev']);
+  gulp.watch(paths.directives, ['build:dev']);
 });

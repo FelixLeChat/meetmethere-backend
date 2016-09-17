@@ -20,8 +20,7 @@
 
       function activate(){
         if(AuthService.isLoggedIn()){
-          $location.path('/');
-          $window.location.reload();
+            $window.location.href = '/Dashboard/Teams';
         }
       }
 
@@ -65,7 +64,15 @@
       vm.cpwd='';
       vm.submit = submit;
 
-    /////////////////////
+        activate();
+
+        /////////////////////
+
+      function activate() {
+          if (AuthService.isLoggedIn()) {
+              $window.location.href = '/Dashboard/Teams';
+          }
+      }
 
       function submit(){
         console.log(vm);

@@ -16,8 +16,7 @@
 
       function activate(){
         if(AuthService.isLoggedIn()){
-          $location.path('/');
-          $window.location.reload();
+            $window.location.href = '/Dashboard/Teams';
         }
       }
 

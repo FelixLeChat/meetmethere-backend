@@ -12,7 +12,15 @@
       vm.cpwd='';
       vm.submit = submit;
 
-    /////////////////////
+        activate();
+
+        /////////////////////
+
+      function activate() {
+          if (AuthService.isLoggedIn()) {
+              $window.location.href = '/Dashboard/Teams';
+          }
+      }
 
       function submit(){
         console.log(vm);

@@ -24,11 +24,16 @@
 
     function login(credentials) {
       return DataGatewayService.post("login", credentials).then(function(response){
-        if(response.status === 200 && response.headers.Authorization){
+        if(response.status === 200 && response.data){
           $cookies.put('uinfo', {username: credentials.Username, email: credentials.Email});
-          $cookies.put('utoken', response.headers.Authorization);
+          $cookies.put('utoken', response.data);
+          $window.location.href = '/Dashboard/Teams';
         }
       });
+    }
+
+    function apiCall() {
+        
     }
 
     function isLoggedIn() {
@@ -37,20 +42,20 @@
 
     function signup(credentials) {
       return DataGatewayService.post("register", credentials).then(function(response){
-        if(response.status === 200 && response.headers.Authorization){
+        if(response.status === 200 && response.data){
           $cookies.put('uinfo', {username: credentials.Username});
-          $cookies.put('utoken', response.headers.Authorization);
+          $cookies.put('utoken', response.DataTransferItem);
+          $window.location.href = '/Dashboard/Teams';
         }
       });
     }
 
     function logout() {
       return DataGatewayService.post("logout", credentials).then(function(response){
-        if(response.status === 200 && response.headers.Authorization){
+        if(response.status === 200 && response.data){
           $cookies.delete('uinfo');
           $cookies.delete('utoken');
-          $location.path('/');
-          $window.location.reload();
+          $window.location.href = '/';
         }
       });
     }
@@ -91,7 +96,7 @@
         console.log(payload);
         var req = {
           method: method,
-          url: "api/" + route,
+          url: "/api/" + route,
           headers: {
             "Content-Type": "application/json"
           }
@@ -99,10 +104,10 @@
         if(payload){
           req.data = payload;
         }
-        return $http().then(
+        return $http(req).then(
           function(response) {
             console.log(response);
-            return Promise.resolve(response.data);
+            return Promise.resolve(response);
           },
           function(error) {
             console.error(error);
