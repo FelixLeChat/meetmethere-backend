@@ -47,7 +47,7 @@ namespace MeetMeThere.Api.Service
                             db.Team_User.Add(new Team_User()
                             {
                                 TeamId = newTeam.Id,
-                                UserId = this.UserToken.UserId
+                                UserId = dbuser.Id
                             });
                         }
                         
