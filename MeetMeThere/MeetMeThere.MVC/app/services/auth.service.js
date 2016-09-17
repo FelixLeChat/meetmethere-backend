@@ -13,6 +13,7 @@
       login: login,
       logout: logout,
       isLoggedIn: isLoggedIn,
+      getToken: getToken,
     };
 
     return service;
@@ -26,10 +27,6 @@
           $window.location.href = '/Dashboard/Teams';
         }
       });
-    }
-
-    function apiCall() {
-        
     }
 
     function isLoggedIn() {

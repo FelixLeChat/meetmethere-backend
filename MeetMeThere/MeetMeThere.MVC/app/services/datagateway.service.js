@@ -10,9 +10,9 @@
   angular.module("app.services")
     .service('DataGatewayService', DataGatewayService);
 
-  DataGatewayService.$inject = ['$http'];
+  DataGatewayService.$inject = ['$http', 'AuthService'];
 
-  function DataGatewayService($http) {
+  function DataGatewayService($http, AuthService) {
     var service = {
       post: http("POST"),
       get: http("GET"),
@@ -39,6 +39,9 @@
         };
         if(payload){
           req.data = payload;
+        }
+        if(AuthService.isLoggedIn()){
+          req.headers.Authorization = AuthService.getToken();
         }
         return $http(req).then(
           function(response) {
