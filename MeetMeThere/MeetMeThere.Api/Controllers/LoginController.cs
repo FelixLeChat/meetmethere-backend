@@ -1,24 +1,25 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 
 using MeetMeThere.Api.Models;
 using MeetMeThere.Api.Service;
 
 namespace MeetMeThere.Api.Controllers
 {
-    [RoutePrefix("api/register")]
-    public class RegisterController : ApiController
+    [RoutePrefix("api/login")]
+    public class LoginController : ApiController
     {
         private static ConnexionService _connexionService;
-        public RegisterController()
+        public LoginController()
         {
             _connexionService = new ConnexionService();
         }
 
         [HttpPost]
         [Route("")]
-        public string Register(RegisterMessage register)
+        public string Login(LoginMessage login)
         {
-            return _connexionService.Register(register);
+            return _connexionService.Login(login);
         }
     }
 }
