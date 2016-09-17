@@ -28,14 +28,14 @@
         if(!AuthService.isLoggedIn()){
           $window.location.href = '/';
         }else{
-          return DataGatewayService[vm.method.view](vm.route.view, {}).then(function(response){
+          return DataGatewayService[vm.method.view](vm.route.view, {}, AuthService.getToken()).then(function(response){
             vm.teams = response.data;
           });
         }
       }
 
       function create(){
-        return DataGatewayService[vm.method.create](vm.route.create, {}).then(function(response){
+        return DataGatewayService[vm.method.create](vm.route.create, {},AuthService.getToken()).then(function(response){
           vm.teams.push(vm.newTeam);
           vm.newTeam = [];
         }).catch(function(error){
