@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetMeThere.Api", "MeetMeThere.Api\MeetMeThere.Api.csproj", "{F38919D2-7CAB-4399-A9A5-B5067FC4309B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MeetMeThere.Database", "MeetMeThere.Database\MeetMeThere.Database.sqlproj", "{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F38919D2-7CAB-4399-A9A5-B5067FC4309B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38919D2-7CAB-4399-A9A5-B5067FC4309B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38919D2-7CAB-4399-A9A5-B5067FC4309B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38919D2-7CAB-4399-A9A5-B5067FC4309B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876B6C6B-3C3A-41BD-A1C6-21DDA7359A67}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
