@@ -24,6 +24,8 @@ namespace MeetMeThere.Api.Service
 
             using (var db = new meetmethereEntities())
             {
+                db.Database.Connection.Open();
+
                 User user = null;
 
                 // Check username
@@ -62,13 +64,15 @@ namespace MeetMeThere.Api.Service
         {
             using (var db = new meetmethereEntities())
             {
+                db.Database.Connection.Open();
+
                 var user = db.Users.FirstOrDefault(x => x.Username == message.Username);
 
                 if (user == null)
-                    throw HttpResponseExceptionHelper.Create("Invalid", HttpStatusCode.BadRequest);
+                    throw HttpResponseExceptionHelper.Create("Invalid user", HttpStatusCode.BadRequest);
 
                 if (!PasswordHash.ValidatePassword(message.Password, user.HashPassword))
-                    throw HttpResponseExceptionHelper.Create("Invalid", HttpStatusCode.Forbidden);
+                    throw HttpResponseExceptionHelper.Create("Invalid password", HttpStatusCode.Forbidden);
 
                 return this.GetToken(user);
             }

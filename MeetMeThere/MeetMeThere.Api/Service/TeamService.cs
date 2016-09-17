@@ -85,6 +85,7 @@ namespace MeetMeThere.Api.Service
                 {
                     Description = x.Team.Description,
                     Name = x.Team.Name,
+                    Id = x.TeamId ?? 0,
                     Users = x.Team.Team_User.Select(y => new UserModel()
                     {
                         Email = y.User.Email,
