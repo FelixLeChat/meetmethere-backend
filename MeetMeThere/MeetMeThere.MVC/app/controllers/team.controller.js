@@ -35,7 +35,7 @@
       }
 
       function create(){
-        return DataGatewayService[vm.method.create](vm.route.create, {},AuthService.getToken()).then(function(response){
+        return DataGatewayService[vm.method.create](vm.route.create, vm.newTeam ,AuthService.getToken()).then(function(response){
           vm.teams.push(vm.newTeam);
           vm.newTeam = [];
         }).catch(function(error){
