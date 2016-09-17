@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 using MeetMeThere.MVC.Helper;
 using MeetMeThere.MVC.Models;
@@ -16,6 +17,9 @@ namespace MeetMeThere.MVC.Service
 
         public void CreateTeam(TeamModel team)
         {
+            if (team == null || string.IsNullOrEmpty(team.Description) || string.IsNullOrEmpty(team.Name))
+                throw HttpResponseExceptionHelper.Create("Empty team creation", HttpStatusCode.BadRequest);
+
             using (var db = new meetmethereEntities())
             {
                 // create team
