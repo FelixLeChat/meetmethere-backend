@@ -64,6 +64,10 @@
       <HintPath>..\packages\SimpleOAuth.Net.1.0.1\lib\net20\SimpleOAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.4.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -83,6 +87,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -532,6 +540,7 @@
     <Content Include="assets\img\jenny.jpg" />
     <Content Include="assets\img\logo-2.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\map-placeholder.png" />
     <Content Include="assets\img\nan.jpg" />
     <Content Include="assets\img\people.png" />
     <Content Include="assets\img\place.png" />
@@ -554,6 +563,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -601,6 +611,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Database\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\User_Team_Title.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginMessage.cs" />
@@ -1041,14 +1054,6 @@
     <Content Include="app\lib\semantic\tasks\config\admin\templates\package.json" />
     <Content Include="app\lib\semantic\tasks\config\admin\templates\README.md" />
     <Content Include="app\lib\semantic\tasks\README.md" />
-    <Content Include="assets\scss\color.scss" />
-    <Content Include="assets\scss\dashboard\side-bar.scss" />
-    <Content Include="assets\scss\fonts.scss" />
-    <Content Include="assets\scss\general\body.scss" />
-    <Content Include="assets\scss\login\login.scss" />
-    <Content Include="assets\scss\main.scss" />
-    <Content Include="assets\scss\register\register.scss" />
-    <Content Include="assets\scss\teams\teams.scss" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1070,6 +1075,10 @@
     <Content Include="app\lib\angular-cookies\LICENSE.md" />
     <Content Include="app\lib\angular-cookies\package.json" />
     <Content Include="app\lib\angular-cookies\README.md" />
+    <Content Include="Views\Dashboard\Meetings.cshtml" />
+    <Content Include="assets\scss\color.scss" />
+    <Content Include="assets\scss\fonts.scss" />
+    <Content Include="assets\scss\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1079,6 +1088,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\scss\dashboard\" />
+    <Folder Include="assets\scss\general\" />
+    <Folder Include="assets\scss\login\" />
+    <Folder Include="assets\scss\meetings\" />
+    <Folder Include="assets\scss\register\" />
+    <Folder Include="assets\scss\teams\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

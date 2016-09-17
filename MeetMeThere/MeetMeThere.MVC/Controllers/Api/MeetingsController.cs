@@ -9,20 +9,20 @@ using MeetMeThere.MVC.Service;
 namespace MeetMeThere.MVC.Controllers.Api
 {
     [SecureAPI]
-    [RoutePrefix("api/team")]
+    [RoutePrefix("api/meeting")]
     public class MeetingController : SecureController.SecureController
     {
-        private readonly MeetingService _teamService;
+        private readonly MeetingService _meetingService;
         public MeetingController()
         {
-            this._teamService = new MeetingService(this.UserToken);
+            this._meetingService = new MeetingService(this.UserToken);
         }
 
         [Route("")]
         [HttpGet]
         public List<MeetingModel> GetMyMeetings()
         {
-            return null; //this._teamService.GetMyTeams();
+            return this._meetingService.GetMyMeetings();
         }
 
     }

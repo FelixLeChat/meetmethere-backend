@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='default' />
+/// <binding AfterBuild='default'/>
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -41,7 +41,7 @@ var paths = {
   ]
 };
 
-gulp.task('default', ['clean', 'build:dev', 'watch']);
+gulp.task('default', ['clean', 'build:dev']);
 
 gulp.task('clean', function(done) {
   del.sync('./build/*.js');

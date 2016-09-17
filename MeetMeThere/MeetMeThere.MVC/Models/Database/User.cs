@@ -18,6 +18,7 @@ namespace MeetMeThere.MVC.Models.Database
         public User()
         {
             this.Team_User = new HashSet<Team_User>();
+            this.User_Team_Title = new HashSet<User_Team_Title>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace MeetMeThere.MVC.Models.Database
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Team_User> Team_User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User_Team_Title> User_Team_Title { get; set; }
     }
 }

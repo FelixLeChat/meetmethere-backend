@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="meetmethereModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="meetmethereModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -57,6 +57,15 @@
           <Property Name="HashPassword" Type="varchar(max)" />
           <Property Name="Salt" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="User-Team-Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="TeamId" Type="int" />
+          <Property Name="Title" Type="varchar(max)" />
+        </EntityType>
         <Association Name="FK_Team-Meeting_Meeting">
           <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
           <End Role="Team-Meeting" Type="Self.Team-Meeting" Multiplicity="*" />
@@ -105,6 +114,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User-Team-Title_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="User-Team-Title" Type="Self.User-Team-Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User-Team-Title">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User-Team-Title_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User-Team-Title" Type="Self.User-Team-Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User-Team-Title">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="meetmethereModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
@@ -112,6 +145,7 @@
           <EntitySet Name="Team-Meeting" EntityType="Self.Team-Meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team-User" EntityType="Self.Team-User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User-Team-Title" EntityType="Self.User-Team-Title" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Team-Meeting_Meeting" Association="Self.FK_Team-Meeting_Meeting">
             <End Role="Meeting" EntitySet="Meeting" />
             <End Role="Team-Meeting" EntitySet="Team-Meeting" />
@@ -128,9 +162,16 @@
             <End Role="User" EntitySet="User" />
             <End Role="Team-User" EntitySet="Team-User" />
           </AssociationSet>
+          <AssociationSet Name="FK_User-Team-Title_Team" Association="Self.FK_User-Team-Title_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="User-Team-Title" EntitySet="User-Team-Title" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User-Team-Title_User" Association="Self.FK_User-Team-Title_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User-Team-Title" EntitySet="User-Team-Title" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="meetmethereModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -162,6 +203,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Team_Meeting" Relationship="Self.FK_Team_Meeting_Team" FromRole="Team" ToRole="Team_Meeting" />
           <NavigationProperty Name="Team_User" Relationship="Self.FK_Team_User_Team" FromRole="Team" ToRole="Team_User" />
+          <NavigationProperty Name="User_Team_Title" Relationship="meetmethereModel.FK_User_Team_Title_Team" FromRole="Team" ToRole="User_Team_Title" />
         </EntityType>
         <EntityType Name="Team_Meeting">
           <Key>
@@ -193,6 +235,7 @@
           <Property Name="HashPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Team_User" Relationship="Self.FK_Team_User_User" FromRole="User" ToRole="Team_User" />
+          <NavigationProperty Name="User_Team_Title" Relationship="meetmethereModel.FK_User_Team_Title_User" FromRole="User" ToRole="User_Team_Title" />
         </EntityType>
         <Association Name="FK_Team_Meeting_Meeting">
           <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
@@ -265,7 +308,51 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Team_User" EntitySet="Team_User" />
           </AssociationSet>
+          <EntitySet Name="User_Team_Title" EntityType="meetmethereModel.User_Team_Title" />
+          <AssociationSet Name="FK_User_Team_Title_Team" Association="meetmethereModel.FK_User_Team_Title_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="User_Team_Title" EntitySet="User_Team_Title" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Team_Title_User" Association="meetmethereModel.FK_User_Team_Title_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User_Team_Title" EntitySet="User_Team_Title" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="User_Team_Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="TeamId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="meetmethereModel.FK_User_Team_Title_Team" FromRole="User_Team_Title" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="meetmethereModel.FK_User_Team_Title_User" FromRole="User_Team_Title" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_User_Team_Title_Team">
+          <End Type="meetmethereModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="meetmethereModel.User_Team_Title" Role="User_Team_Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Team_Title">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Team_Title_User">
+          <End Type="meetmethereModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="meetmethereModel.User_Team_Title" Role="User_Team_Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Team_Title">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -327,6 +414,16 @@
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="HashPassword" ColumnName="HashPassword" />
                 <ScalarProperty Name="Salt" ColumnName="Salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Team_Title">
+            <EntityTypeMapping TypeName="meetmethereModel.User_Team_Title">
+              <MappingFragment StoreEntitySet="User-Team-Title">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -31,5 +31,6 @@ namespace MeetMeThere.MVC.Models.Database
         public virtual DbSet<Team_Meeting> Team_Meeting { get; set; }
         public virtual DbSet<Team_User> Team_User { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User_Team_Title> User_Team_Title { get; set; }
     }
 }

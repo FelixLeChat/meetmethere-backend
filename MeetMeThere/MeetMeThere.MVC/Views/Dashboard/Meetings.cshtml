@@ -1,0 +1,145 @@
+﻿@using System
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui sidebar visible vertical menu">
+    <div class="side-bar--logo">
+    </div>
+    <p class="side-bar--username">Username</p>
+
+    <a class="item">
+        <img src="~/assets/img/people.png">Teams
+    </a>
+    <a class="item">
+        <img src="~/assets/img/calendar.png">My Meetings
+    </a>
+</div>
+<div class="pusher">
+    <!-- Site content !-->
+    <div class="ui vertical segment padded meetings">
+        <div class="row">
+            <h1 class="meetings--header">Meet Me There</h1>
+        </div>
+        <div class="row meetings--title">
+            <p class="meetings--header">
+                <img class="meetings--img" src="~/assets/img/calendar.png">
+                My Meetings
+                <button id="add-meeting-button" class="circular right floated ui icon button meetings--button">
+                    <i class="icon plus"></i>
+                </button>
+            </p>
+        </div>
+    </div>
+    <!-- TODO: ng-repeat for all future (?) meetings -->
+    <div class="ui padded segment items">
+        <div class="item">
+            <div class="image">
+                <!-- TODO: insert actual map -->
+                <img id="meeting--map" src="~/assets/img/map-placeholder.png">
+            </div>
+            <div class="content">
+                <a class="header">Team Name - Meeting Location</a>
+                <div class="meta">
+                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
+                </div>
+                <div class="extra">
+                    <i class="icon marker"></i>
+                    1721 Ropery Street, Montreal, Québec
+                </div>
+                <div class="description">
+                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
+                </div>
+                <div class="ui right aligned grid">
+                    <div class="left floated left aligned nine wide column">
+                        <div class="extra">
+                            <a class="ui small yellow image label">
+                                <img id="meeting--participant--img" src="~/assets/img/christian.jpg">
+                                Christian
+                                <div class="detail"><i class="icon help"></i></div>
+                            </a>
+                            <a class="ui teal image label">
+                                <img id="meeting--participant--img" src="~/assets/img/jenny.jpg">
+                                Jenny
+                                <div class="detail"><i class="icon checkmark"></i></div>
+                            </a>
+                            <a class="ui grey image label">
+                                <img id="meeting--participant--img" src="~/assets/img/nan.jpg">
+                                Amanda
+                                <div class="detail"><i class="icon remove"></i></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right floated right aligned seven wide column">
+                        <div class="extra">
+                            <i class="icon wifi large" id="meeting--amentities"></i>
+                            <i class="icon coffee large" id="meeting--amentities"></i>
+                            <i class="icon plug large" id="meeting--amentities"></i>
+                            <i class="icon food large" id="meeting--amentities"></i>
+                            <i class="icon beer large" id="meeting--amentities"></i>
+                            <i class="icon tree large" id="meeting--amentities"></i>
+                            <i class="icon alarm mute large" id="meeting--amentities"></i>
+                            <i class="icon money large" id="meeting--amentities"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO: delete. only for demo purposes -->
+    <div class="ui padded segment items">
+        <div class="item">
+            <div class="image">
+                <!-- TODO: insert actual map -->
+                <img id="meeting--map" src="~/assets/img/map-placeholder.png">
+            </div>
+            <div class="content">
+                <a class="header">Team Name - Meeting Location</a>
+                <div class="meta">
+                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
+                </div>
+                <div class="extra">
+                    <i class="icon marker"></i>
+                    1721 Ropery Street, Montreal, Québec
+                </div>
+                <div class="description">
+                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
+                </div>
+                <div class="ui right aligned grid">
+                    <div class="left floated left aligned nine wide column">
+                        <div class="extra">
+                            <a class="ui small yellow image label">
+                                <img id="meeting--participant--img" src="~/assets/img/christian.jpg">
+                                Christian
+                                <div class="detail"><i class="icon help"></i></div>
+                            </a>
+                            <a class="ui teal image label">
+                                <img id="meeting--participant--img" src="~/assets/img/jenny.jpg">
+                                Jenny
+                                <div class="detail"><i class="icon checkmark"></i></div>
+                            </a>
+                            <a class="ui grey image label">
+                                <img id="meeting--participant--img" src="~/assets/img/nan.jpg">
+                                Amanda
+                                <div class="detail"><i class="icon remove"></i></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right floated right aligned seven wide column">
+                        <div class="extra">
+                            <i class="icon wifi large" id="meeting--amentities"></i>
+                            <i class="icon coffee large" id="meeting--amentities"></i>
+                            <i class="icon plug large" id="meeting--amentities"></i>
+                            <i class="icon food large" id="meeting--amentities"></i>
+                            <i class="icon beer large" id="meeting--amentities"></i>
+                            <i class="icon tree large" id="meeting--amentities"></i>
+                            <i class="icon alarm mute large" id="meeting--amentities"></i>
+                            <i class="icon money large" id="meeting--amentities"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,9 +2,9 @@
   angular.module('app.controllers')
     .controller('SignupController', SignupController);
 
-    SignupController.$inject = ['DataGatewayService', 'AuthService'];
+  SignupController.$inject = ['DataGatewayService', 'AuthService', '$window'];
 
-    function SignupController(DataGatewayService, AuthService){
+  function SignupController(DataGatewayService, AuthService, $window) {
       var vm = this;
       vm.email='';
       vm.username='';

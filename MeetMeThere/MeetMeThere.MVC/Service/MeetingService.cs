@@ -36,13 +36,14 @@ namespace MeetMeThere.MVC.Service
             }
         }
 
-        public List<TeamModel> GetMyMeetings()
+        public List<MeetingModel> GetMyMeetings()
         {
             using (var db = new meetmethereEntities())
             {
                 var teamService = new TeamService(this.UserToken);
                 var myTeams = teamService.GetMyTeams();
 
+                //return db.Team_Meeting
                 //return db.Team_Meeting.Where(x => myTeams.Select(x => x.Id).Contains(x.TeamId))
             }
 

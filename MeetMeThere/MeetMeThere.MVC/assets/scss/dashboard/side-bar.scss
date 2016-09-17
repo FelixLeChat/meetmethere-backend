@@ -3,6 +3,10 @@
 	&--logo {
 		background-color: $persian-green;
 		height: 150px;
+        background-image: url(/assets/img/logo-2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
 
 		&--img {
 			width: 240px;

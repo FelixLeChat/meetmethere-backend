@@ -16,9 +16,17 @@
 body {
   background-color: #DBDADA; }
 
+.pusher {
+  padding-right: 10px !important;
+  padding-left: 220px; }
+
 .side-bar--logo {
   background-color: #00989B;
-  height: 150px; }
+  height: 150px;
+  background-image: url(/assets/img/logo-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
   .side-bar--logo--img {
     width: 240px;
     margin-top: 10px; }
@@ -64,3 +72,26 @@ body {
 
 .create, .create--description {
   padding-left: 37.4px !important; }
+
+.meetings {
+  height: 150px; }
+  .meetings--header {
+    color: #00B5AD; }
+  .meetings--img {
+    height: 30px; }
+  .meetings p {
+    font-size: 30px; }
+  .meetings--button {
+    background-color: #00B5AD !important; }
+  .meetings--title {
+    margin-top: 45px; }
+
+#meeting--map {
+  width: 100% !important;
+  margin-top: -0px !important; }
+
+#meeting, #meeting--participant--img {
+  margin-top: -7px !important; }
+
+#meeting, #meeting--amenities {
+  height: 26px !important; }

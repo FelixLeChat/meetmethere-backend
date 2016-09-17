@@ -15,6 +15,9 @@
         <AssociationConnector Association="meetmethereModel.FK_Team_Meeting_Team" ManuallyRouted="false" />
         <AssociationConnector Association="meetmethereModel.FK_Team_User_Team" ManuallyRouted="false" />
         <AssociationConnector Association="meetmethereModel.FK_Team_User_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="meetmethereModel.User_Team_Title" Width="1.5" PointX="3" PointY="7.25" />
+        <AssociationConnector Association="meetmethereModel.FK_User_Team_Title_Team" />
+        <AssociationConnector Association="meetmethereModel.FK_User_Team_Title_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

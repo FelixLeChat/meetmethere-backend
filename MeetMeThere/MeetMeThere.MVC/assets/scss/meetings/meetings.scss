@@ -1,0 +1,38 @@
+.meetings {
+	height: 150px;
+
+	&--header {
+		color: $light-persian-green;
+	}
+
+	&--img {
+		height: 30px;
+	}
+
+	p {
+		font-size: 30px;
+	}
+
+	&--button {
+		background-color: $light-persian-green !important;
+	}
+
+	&--title {
+		margin-top: 45px;
+	}
+}
+
+#meeting {
+	&--map {
+		width: 100% !important;
+		margin-top: -0px !important;
+	}, 
+
+	&--participant--img {
+		margin-top: -7px !important;
+	},
+
+	&--amenities {
+		height: 26px !important;
+	}
+}

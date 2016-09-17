@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using MeetMeThere.MVC.Helper;
 using MeetMeThere.MVC.Models;
 using MeetMeThere.MVC.Models.Database;
 
@@ -49,6 +50,9 @@ namespace MeetMeThere.MVC.Service
                                 TeamId = newTeam.Id,
                                 UserId = dbuser.Id
                             });
+                            db.SaveChanges();
+
+                            db.User_Team_Title.Add(new User_Team_Title() { TeamId = newTeam.Id, UserId = dbuser.Id, Title = user.Title });
                         }
                         
                     }
@@ -59,11 +63,16 @@ namespace MeetMeThere.MVC.Service
                             dbuser = db.Users.FirstOrDefault(x => x.Email == user.Email);
 
                         if (dbuser != null)
+                        {
                             db.Team_User.Add(new Team_User()
                             {
                                 TeamId = newTeam.Id,
                                 UserId = this.UserToken.UserId
                             });
+
+                            db.SaveChanges();
+                            db.User_Team_Title.Add(new User_Team_Title() { TeamId = newTeam.Id, UserId = dbuser.Id, Title = user.Title });
+                        }
                     }
 
                     db.SaveChanges();
@@ -89,7 +98,9 @@ namespace MeetMeThere.MVC.Service
                     Users = x.Team.Team_User.Select(y => new UserModel()
                     {
                         Email = y.User.Email,
-                        Username = y.User.Username
+                        Username = y.User.Username,
+                        Title = db.User_Team_Title.Where(z => z.TeamId == x.TeamId && z.UserId == x.UserId).Select(z => z.Title).FirstOrDefault(),
+                        Image = ImageProvider.GetRandomImgPath()
                     }).ToList()
                 }).ToList();
             }

@@ -65,6 +65,7 @@
     <Build Include="Models\Team.sql" />
     <Build Include="Models\Team-Meeting.sql" />
     <Build Include="Models\Team-User.sql" />
+    <Build Include="Models\User-Team-Title.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MeetMeThere.Database.refactorlog" />
