@@ -10,9 +10,9 @@
   angular.module("app.services")
     .service('DataGatewayService', DataGatewayService);
 
-  DataGatewayService.$inject = ['$http', 'AuthService'];
+  DataGatewayService.$inject = ['$http'];
 
-  function DataGatewayService($http, AuthService) {
+  function DataGatewayService($http) {
     var service = {
       post: http("POST"),
       get: http("GET"),
