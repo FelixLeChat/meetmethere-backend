@@ -21,4 +21,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="UserId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f3583118-105c-4198-9333-13db72e15d1f" ChangeDateTime="09/18/2016 04:54:10">
+    <Property Name="ElementName" Value="[dbo].[MontrealPublicPlace].[        public string code_postal { get; set; }]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MontrealPublicPlace]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="public string code_postal { get; set; }" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8614396e-be66-4bbb-b564-b433c766f515" ChangeDateTime="09/18/2016 04:54:51">
+    <Property Name="ElementName" Value="[dbo].[MontrealPublicPlace].[        public string site_internet { get; set; }]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MontrealPublicPlace]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="public string site_internet { get; set; }" />
+  </Operation>
 </Operations>

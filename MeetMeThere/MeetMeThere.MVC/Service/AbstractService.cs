@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 
@@ -22,7 +23,7 @@ namespace MeetMeThere.MVC.Service
             {
                 db.SaveChanges();
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbEx)
             {
                 var message = dbEx.EntityValidationErrors.Aggregate("", (current1, validationErrors) => validationErrors.ValidationErrors.Aggregate(current1, (current, validationError) => current + $"{validationErrors.Entry.Entity.ToString()}:{validationError.ErrorMessage}"));
                 throw HttpResponseExceptionHelper.Create(message, HttpStatusCode.BadRequest);

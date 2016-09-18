@@ -105,3 +105,10 @@ body {
 
 #meeting, #meeting--amenities {
   height: 26px !important; }
+
+.schedule--meeting--map {
+  width: 100%; }
+
+#map {
+  height: 400px;
+  width: 400px; }

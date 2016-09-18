@@ -6,7 +6,6 @@ using System.Text;
 using System.Web;
 
 using MeetMeThere.MVC.Google.Model;
-using MeetMeThere.MVC.Models;
 
 using Newtonsoft.Json.Linq;
 

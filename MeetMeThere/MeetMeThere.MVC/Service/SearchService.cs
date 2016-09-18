@@ -4,6 +4,7 @@ using System.Linq;
 
 using MeetMeThere.MVC.Google.Model;
 using MeetMeThere.MVC.Models;
+using MeetMeThere.MVC.Yelp;
 
 using Newtonsoft.Json.Linq;
 
@@ -23,7 +24,7 @@ namespace MeetMeThere.MVC.Service
 
 
             // 3 data from yelp
-            var yelpService = new Yelp.YelpApiClient();
+            var yelpService = new YelpApiClient();
             var yelpData = yelpService.Search("", location, searchType);
             var businesses = (JArray)yelpData.GetValue("businesses");
 

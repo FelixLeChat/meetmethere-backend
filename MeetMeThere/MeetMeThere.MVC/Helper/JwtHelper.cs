@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using JWT;
+
 using MeetMeThere.MVC.Models;
 
 namespace MeetMeThere.MVC.Helper
@@ -16,7 +18,7 @@ namespace MeetMeThere.MVC.Helper
                 if (token == null)
                     return false;
 
-                var jsonPayload = JWT.JsonWebToken.DecodeToObject(token, SecretKey) as IDictionary<string, object>;
+                var jsonPayload = JsonWebToken.DecodeToObject(token, SecretKey) as IDictionary<string, object>;
 
                 if (jsonPayload == null)
                     return false;
@@ -30,7 +32,7 @@ namespace MeetMeThere.MVC.Helper
                 //if (expiration < canadaTime)
                 //    return false;
             }
-            catch (JWT.SignatureVerificationException)
+            catch (SignatureVerificationException)
             {
                 return false;
             }
@@ -49,7 +51,7 @@ namespace MeetMeThere.MVC.Helper
                 { "userId", token.UserId },
                 //{ "Expiration", canadaExpirationTime }
             };
-            return JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            return JsonWebToken.Encode(payload, SecretKey, JwtHashAlgorithm.HS256);
         }
 
         public static UserToken DecodeToken(string token)
@@ -57,7 +59,7 @@ namespace MeetMeThere.MVC.Helper
             if (ValidateToken(token))
             {
                 var userToken = new UserToken() { Token = token };
-                var jsonPayload = JWT.JsonWebToken.DecodeToObject(token, SecretKey) as IDictionary<string, object>;
+                var jsonPayload = JsonWebToken.DecodeToObject(token, SecretKey) as IDictionary<string, object>;
 
                 if (jsonPayload == null) return userToken;
 

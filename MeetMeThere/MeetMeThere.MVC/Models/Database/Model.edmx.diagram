@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="meetmethereModel.User_Team_Title" Width="1.5" PointX="3" PointY="7.25" />
         <AssociationConnector Association="meetmethereModel.FK_User_Team_Title_Team" />
         <AssociationConnector Association="meetmethereModel.FK_User_Team_Title_User" />
+        <EntityTypeShape EntityType="meetmethereModel.MontrealPublicPlace" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

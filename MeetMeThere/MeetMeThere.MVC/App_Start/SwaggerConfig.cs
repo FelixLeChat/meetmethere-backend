@@ -1,7 +1,11 @@
+using System;
 using System.Web.Http;
-using WebActivatorEx;
+
 using MeetMeThere.MVC;
+
 using Swashbuckle.Application;
+
+using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 

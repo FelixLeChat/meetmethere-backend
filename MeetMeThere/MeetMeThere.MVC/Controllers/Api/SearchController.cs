@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Web.Http;
 
-using MeetMeThere.MVC.Controllers.SecureController;
 using MeetMeThere.MVC.Google.Model;
 using MeetMeThere.MVC.Models;
 using MeetMeThere.MVC.Service;

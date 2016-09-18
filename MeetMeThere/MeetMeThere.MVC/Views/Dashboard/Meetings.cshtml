@@ -3,70 +3,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="ui sidebar visible vertical menu">
+<div class="ui sidebar visible left vertical menu">
     <div class="side-bar--logo">
+        <img class="side-bar--logo--img" src="./assets/img/logo-2.png">
     </div>
     <p class="side-bar--username">Username</p>
-
     <a class="item">
-        <img src="~/assets/img/people.png">Teams
+        <img src="./assets/img/people.png">Teams
     </a>
     <a class="item">
-        <img src="~/assets/img/calendar.png">My Meetings
+        <img src="./assets/img/calendar.png">My Meetings
     </a>
 </div>
-<div class="pusher">
-    <!-- Site content !-->
+<div class="pusher" ng-controller="MeetingController as mctrl">
     <div class="ui vertical segment padded meetings">
         <div class="row">
             <h1 class="meetings--header">Meet Me There</h1>
         </div>
         <div class="row meetings--title">
             <p class="meetings--header">
-                <img class="meetings--img" src="~/assets/img/calendar.png">
-                My Meetings
-                <button id="add-meeting-button" class="circular right floated ui icon button meetings--button">
+                <img class="meetings--img" src="./assets/img/calendar.png"> My Meetings
+                <button ng-click="mctrl.show()" id="add-meeting-button" class="circular right floated ui icon button meetings--button">
                     <i class="icon plus"></i>
                 </button>
             </p>
         </div>
     </div>
     <!-- TODO: ng-repeat for all future (?) meetings -->
-    <div class="ui padded segment items">
+    <div ng-repeat="meeting in mctrl.meetings" class="ui padded segment items">
         <div class="item">
             <div class="image">
-                <!-- TODO: insert actual map -->
-                <img id="meeting--map" src="~/assets/img/map-placeholder.png">
+                <img id="meeting--map" src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x500&key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0">
             </div>
             <div class="content">
-                <a class="header">Team Name - Meeting Location</a>
+                <a class="header">{{meeting.Team}} - {{meeting.LocationName}}</a>
                 <div class="meta">
-                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
+                    <span>{{meeting.StartDateTime}}</span>
                 </div>
                 <div class="extra">
-                    <i class="icon marker"></i>
-                    1721 Ropery Street, Montreal, Québec
+                    <i class="icon marker"></i> {{meeting.Address}}
                 </div>
                 <div class="description">
-                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
+                    <p>{{meeting.Description}}</p>
                 </div>
                 <div class="ui right aligned grid">
                     <div class="left floated left aligned nine wide column">
                         <div class="extra">
-                            <a class="ui small yellow image label">
-                                <img id="meeting--participant--img" src="~/assets/img/christian.jpg">
-                                Christian
+                            <a ng-repeat="user in meeting.Team.Users track by $index" class="ui small {{['yellow', 'teal', 'grey'][$index % 3]}} image label">
+                                <img id="meeting--participant--img" src="{{user.Image}}"> {{user.Username}}
                                 <div class="detail"><i class="icon help"></i></div>
-                            </a>
-                            <a class="ui teal image label">
-                                <img id="meeting--participant--img" src="~/assets/img/jenny.jpg">
-                                Jenny
-                                <div class="detail"><i class="icon checkmark"></i></div>
-                            </a>
-                            <a class="ui grey image label">
-                                <img id="meeting--participant--img" src="~/assets/img/nan.jpg">
-                                Amanda
-                                <div class="detail"><i class="icon remove"></i></div>
                             </a>
                         </div>
                     </div>
@@ -83,63 +68,225 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui modal 1">
+        <i class="close icon"></i>
+        <div class="header">
+            Schedule a meeting | Basic information
+        </div>
+        <form class="ui form">
+            <div class="ui content basic segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="users icon"></i>
+                        <input ng-model="mctrl.schedule.TeamName" type="text" name="team" placeholder="Pick a team">
+                    </div>
+                </div>
+                <div class="ui calendar field" id="example2">
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" placeholder="Date" ng-model="mctrl.schedule.StartDate">
+                    </div>
+                </div>
+                <div class="ui calendar field" id="example3">
+                    <div class="ui input left icon">
+                        <i class="time icon"></i>
+                        <input type="text" placeholder="Time" ng-model="mctrl.schedule.StartTime">
+                    </div>
+                </div>
+                <div class="ui left aligned grid">
+                    <div class="left floated left aligned eight wide column">
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.WiFi" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="wifi icon"></i>WiFi</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Electricity" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="plug icon"></i>Electricity</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Calm" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="alarm mute icon"></i>Quiet atmosphere</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Nature" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="tree icon"></i>Nature</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="left floated left aligned eight wide column">
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Coffee" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="coffee icon"></i>Coffee</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Beer" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="beer icon"></i>Beer</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Food" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="food icon"></i>Food</label>
+                            </div>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input ng-model="mctrl.schedule.Affordable" type="checkbox" tabindex="0" class="hidden">
+                                <label><i class="money icon"></i>Affordable</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div ng-click="mctrl.hide()" class="ui grey deny button">
+                Cancel
+            </div>
+            <div ng-click="mctrl.next()" class="ui create--positive right labeled icon button" id="next-button">
+                Next
+                <i class="arrow right icon"></i>
             </div>
         </div>
     </div>
 
-    <!-- TODO: delete. only for demo purposes -->
-    <div class="ui padded segment items">
-        <div class="item">
-            <div class="image">
-                <!-- TODO: insert actual map -->
-                <img id="meeting--map" src="~/assets/img/map-placeholder.png">
+
+    <div class="ui modal 2">
+        <i class="close icon"></i>
+        <div class="header">
+            Schedule a meeting | Select a venue
+        </div>
+        <div class="ui basic segment">
+          <div class="ui right aligned grid">
+                <div class="left floated left aligned six wide column">
+        <div class="inline fields">
+            <!-- TODO: ng-repeat for each location found to fit? or best 3 fitting ones -->
+            <div ng-repeat="result in mctrl.results track by $index">
+              <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="frequency" checked="checked">
+                    <label><h4>{{result.LocationName}}</h4></label>
+                            <i class="icon marker"></i>{{result.Address}}
+                            </br>
+                              <i ng-show="result.WiFi" class="icon wifi med" id="meeting--amentities"></i>
+                              <i ng-show="result.Electricity" class="icon plug med" id="meeting--amentities"></i>
+                              <i ng-show="result.Coffee" class="icon coffee med" id="meeting--amentities"></i>
+                              <i ng-show="result.Beer" class="icon beer med" id="meeting--amentities"></i>
+                              <i ng-show="result.Food" class="icon food med" id="meeting--amentities"></i>
+                              <i ng-show="result.Tree" class="icon tree med" id="meeting--amentities"></i>
+                              <i ng-show="result.Affordable" class="icon money med" id="meeting--amentities"></i>
+
+                  </div>
+              </div>
+              </br>
             </div>
-            <div class="content">
-                <a class="header">Team Name - Meeting Location</a>
-                <div class="meta">
-                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
-                </div>
-                <div class="extra">
-                    <i class="icon marker"></i>
-                    1721 Ropery Street, Montreal, Québec
-                </div>
-                <div class="description">
-                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
-                </div>
-                <div class="ui right aligned grid">
-                    <div class="left floated left aligned nine wide column">
-                        <div class="extra">
-                            <a class="ui small yellow image label">
-                                <img id="meeting--participant--img" src="~/assets/img/christian.jpg">
-                                Christian
-                                <div class="detail"><i class="icon help"></i></div>
-                            </a>
-                            <a class="ui teal image label">
-                                <img id="meeting--participant--img" src="~/assets/img/jenny.jpg">
-                                Jenny
-                                <div class="detail"><i class="icon checkmark"></i></div>
-                            </a>
-                            <a class="ui grey image label">
-                                <img id="meeting--participant--img" src="~/assets/img/nan.jpg">
-                                Amanda
-                                <div class="detail"><i class="icon remove"></i></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="right floated right aligned seven wide column">
-                        <div class="extra">
-                            <i class="icon wifi large" id="meeting--amentities"></i>
-                            <i class="icon coffee large" id="meeting--amentities"></i>
-                            <i class="icon plug large" id="meeting--amentities"></i>
-                            <i class="icon food large" id="meeting--amentities"></i>
-                            <i class="icon beer large" id="meeting--amentities"></i>
-                            <i class="icon tree large" id="meeting--amentities"></i>
-                            <i class="icon alarm mute large" id="meeting--amentities"></i>
-                            <i class="icon money large" id="meeting--amentities"></i>
-                        </div>
-                    </div>
-                </div>
+        </div>
+      </div>
+      <div class="left floated left aligned ten wide column">
+        <form class="ui large form" ng-controller="MeetupController as mctrl">
+        <div id="map" class="schedule--meeting--map"></div>
+        </form>
+        <!-- <div class="image">
+            TODO: insert actual map
+              <img class="schedule--meeting--map" src="./assets/img/map-placeholder.png">
+        </div> -->
+      </div>
+    </div>
+        </div>
+        <div class="actions">
+            <div class="ui grey deny button">
+                Cancel
+            </div>
+            <div class="ui create--positive right labeled icon button">
+                Schedule meeting
+                <i class="checkmark icon"></i>
             </div>
         </div>
     </div>
+
+
+
+
 </div>
+<script type="text/javascript">
+$("#next-button").click(function() {
+    $('.ui.modal.2').modal('show');
+});
+</script>
+<script type="text/javascript">
+$('#example2').calendar({
+    type: 'date'
+});
+</script>
+<script type="text/javascript">
+$('#example3').calendar({
+    type: 'time'
+});
+</script>
+
+
+
+<script>
+  function initMap() {
+    var locations = [
+  ['Bondi Beach', -33.890542, 151.274856, 'cafe'],
+  ['Coogee Beach', -33.923036, 151.259052, 'food'],
+  ['Cronulla Beach', -34.028249, 151.157507, 'library'],
+  ['Manly Beach', -33.80010128657071, 151.28747820854187, 'bar'],
+  ['Maroubra Beach', -33.950198, 151.259302, 'cafe']
+];
+  // var locations = mctrl.locations
+    var totalLat = 0, totalLng = 0;
+    for (i = 0; i < locations.length; i++) {
+        totalLat += locations[i][1];
+        totalLng += locations[i][2];
+    }
+    var myLatLng = {lat: totalLat/locations.length, lng: totalLng/locations.length};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: myLatLng
+      });
+      var infowindow = new google.maps.InfoWindow();
+      var marker, i;
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent('<h3>'+locations[i][0]+'</h3>'+
+                '<p><i>'+locations[i][3]+'</i></p>'+
+                '<p>'+locations[i][4]+'<img src="./assets/img/star.png" width="15px" height="15px"></p>'+
+                '<button onclick="pickLocation(i)">Pick this location</button>');
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+      }
+  }
+  function pickLocation(i){
+    mctrl.finalLocation = locations[i];
+  }
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0&callback=initMap"
+    async defer></script>
+
+</html>
