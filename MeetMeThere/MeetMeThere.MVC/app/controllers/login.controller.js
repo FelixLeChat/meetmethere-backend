@@ -27,8 +27,6 @@
           error();
         }else if(!vm.pwd){
           error();
-        }else if(vm.pwd !== vm.cpwd){
-          error();
         }else{
           var payload = {
             Username: vm.username,
