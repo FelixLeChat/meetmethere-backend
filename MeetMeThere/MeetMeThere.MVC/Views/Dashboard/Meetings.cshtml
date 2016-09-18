@@ -273,13 +273,23 @@ $('#example3').calendar({
             }
         })(marker, i));
       }
+
+    $('.ui.modal.2').modal({
+        onVisible: function(){
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(myLatLng);
+        }   
+    });
+
   }
   function pickLocation(i){
     mctrl.finalLocation = locations[i];
   }
 </script>
 
-
+ <script>
+    $('.ui.checkbox').checkbox();
+  </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0&callback=initMap"
     async defer></script>
