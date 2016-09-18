@@ -3,19 +3,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="ui sidebar visible left vertical menu">
-    <div class="side-bar--logo">
-        <img class="side-bar--logo--img" src="./assets/img/logo-2.png">
-    </div>
-    <p class="side-bar--username">Username</p>
-    <a class="item">
+<div class="ui sidebar visible vertical menu">
+    <div class="side-bar--logo"></div>
+    <p class="side-bar--username">{{gctrl.user.Username}}</p>
+    <a class="item" href="/Dashboard/Teams">
         <img src="./assets/img/people.png">Teams
     </a>
-    <a class="item">
+    <a class="item" href="/Dashboard/Meetings">
         <img src="./assets/img/calendar.png">My Meetings
     </a>
 </div>
-<div class="pusher">
+<div class="pusher" ng-controller="MeetingController as mctrl">
     <div class="ui vertical segment padded meetings">
         <div class="row">
             <h1 class="meetings--header">Meet Me There</h1>
@@ -23,7 +21,7 @@
         <div class="row meetings--title">
             <p class="meetings--header">
                 <img class="meetings--img" src="./assets/img/calendar.png"> My Meetings
-                <button id="add-meeting-button" class="circular right floated ui icon button meetings--button">
+                <button ng-click="mctrl.show()" id="add-meeting-button" class="circular right floated ui icon button meetings--button">
                     <i class="icon plus"></i>
                 </button>
             </p>
@@ -113,44 +111,44 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="users icon"></i>
-                        <input ng-model="sctrl.team" type="text" name="team" placeholder="Pick a team">
+                        <input ng-model="mctrl.schedule.TeamName" type="text" name="team" placeholder="Pick a team">
                     </div>
                 </div>
                 <div class="ui calendar field" id="example2">
                     <div class="ui input left icon">
                         <i class="calendar icon"></i>
-                        <input type="text" placeholder="Date">
+                        <input type="text" placeholder="Date" ng-model="mctrl.schedule.StartDate">
                     </div>
                 </div>
                 <div class="ui calendar field" id="example3">
                     <div class="ui input left icon">
                         <i class="time icon"></i>
-                        <input type="text" placeholder="Time">
+                        <input type="text" placeholder="Time" ng-model="mctrl.schedule.StartTime">
                     </div>
                 </div>
                 <div class="ui left aligned grid">
                     <div class="left floated left aligned eight wide column">
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.WiFi" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="wifi icon"></i>WiFi</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Electricity" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="plug icon"></i>Electricity</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                              <input ng-model="mctrl.schedule.Calm" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="alarm mute icon"></i>Quiet atmosphere</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Nature" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="tree icon"></i>Nature</label>
                             </div>
                         </div>
@@ -158,25 +156,25 @@
                     <div class="left floated left aligned eight wide column">
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Coffee" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="coffee icon"></i>Coffee</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Beer" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="beer icon"></i>Beer</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Food" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="food icon"></i>Food</label>
                             </div>
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
+                                <input ng-model="mctrl.schedule.Affordable" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="money icon"></i>Affordable</label>
                             </div>
                         </div>
@@ -185,10 +183,10 @@
             </div>
         </form>
         <div class="actions">
-            <div class="ui grey deny button">
+            <div ng-click="mctrl.hide()" class="ui grey deny button">
                 Cancel
             </div>
-            <div class="ui create--positive right labeled icon button" id="next-button">
+            <div ng-click="mctrl.select()" class="ui create--positive right labeled icon button" id="next-button">
                 Next
                 <i class="arrow right icon"></i>
             </div>
@@ -205,43 +203,26 @@
           <div class="ui right aligned grid">
                 <div class="left floated left aligned six wide column">
         <div class="inline fields">
-                    <!-- TODO: ng-repeat for each location found to fit? or best 3 fitting ones -->
-            <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="frequency" checked="checked">
-                  <label><h4>A. Name of Location</h4></label>
-                          <i class="icon marker"></i> 1721 Ropery Street, Montreal, Québec
-                          </br>
-                          <i class="icon wifi med" id="meeting--amentities"></i>
-                            <i class="icon coffee med" id="meeting--amentities"></i>
-                            <i class="icon plug med" id="meeting--amentities"></i>
-                </div>
+            <!-- TODO: ng-repeat for each location found to fit? or best 3 fitting ones -->
+            <div ng-repeat="result in mctrl.results track by $index">
+              <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" ng-model="result.chosen" name="frequency" checked="checked">
+                    <label><h4>{{result.LocationName}}</h4></label>
+                            <i class="icon marker"></i>{{result.Address}}
+                            </br>
+                              <i ng-show="result.WiFi" class="icon wifi med" id="meeting--amentities"></i>
+                              <i ng-show="result.Electricity" class="icon plug med" id="meeting--amentities"></i>
+                              <i ng-show="result.Coffee" class="icon coffee med" id="meeting--amentities"></i>
+                              <i ng-show="result.Beer" class="icon beer med" id="meeting--amentities"></i>
+                              <i ng-show="result.Food" class="icon food med" id="meeting--amentities"></i>
+                              <i ng-show="result.Tree" class="icon tree med" id="meeting--amentities"></i>
+                              <i ng-show="result.Affordable" class="icon money med" id="meeting--amentities"></i>
+
+                  </div>
+              </div>
+              </br>
             </div>
-            </br>
-            <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="frequency" checked="checked">
-                  <label><h4>B. Name of Location</h4></label>
-                          <i class="icon marker"></i> 1721 Ropery Street, Montreal, Québec
-                          </br>
-                          <i class="icon wifi med" id="meeting--amentities"></i>
-                            <i class="icon coffee med" id="meeting--amentities"></i>
-                            <i class="icon plug med" id="meeting--amentities"></i>
-                </div>
-            </div>
-            </br>
-            <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="frequency" checked="checked">
-                  <label><h4>C. Name of Location</h4></label>
-                          <i class="icon marker"></i> 1721 Ropery Street, Montreal, Québec
-                          </br>
-                          <i class="icon wifi med" id="meeting--amentities"></i>
-                            <i class="icon coffee med" id="meeting--amentities"></i>
-                            <i class="icon plug med" id="meeting--amentities"></i>
-                </div>
-            </div>
-          </br>
         </div>
       </div>
       <div class="left floated left aligned ten wide column">
@@ -261,10 +242,10 @@
     </div>
         </div>
         <div class="actions">
-            <div class="ui grey deny button">
+            <div ng-click="mctrl.hide(2)" class="ui grey deny button">
                 Cancel
             </div>
-            <div class="ui create--positive right labeled icon button">
+            <div ng-click="mctrl.submit()" class="ui create--positive right labeled icon button">
                 Schedule meeting
                 <i class="checkmark icon"></i>
             </div>
@@ -275,15 +256,7 @@
 
 
 </div>
-<script type="text/javascript">
-$("#add-meeting-button").click(function() {
-    $('.ui.modal.1').modal('show');
-});
-</script>
-<script type="text/javascript">
-$("#next-button").click(function() {
-    $('.ui.modal.2').modal('show');
-});
+
 </script>
 <script type="text/javascript">
 $('#example2').calendar({
