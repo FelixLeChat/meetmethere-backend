@@ -33,8 +33,7 @@
     <div class="ui padded segment items">
         <div class="item">
             <div class="image">
-                <!-- TODO: insert actual map -->
-                <img id="meeting--map" src="./assets/img/map-placeholder.png">
+                <img id="meeting--map" src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x500&key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0">
             </div>
             <div class="content">
                 <a class="header">Team Name - Meeting Location</a>
@@ -354,6 +353,7 @@ $('#example3').calendar({
             return function() {
                 infowindow.setContent('<h3>'+locations[i][0]+'</h3>'+
                 '<p><i>'+locations[i][3]+'</i></p>'+
+                '<p>'+locations[i][4]+'<img src="./assets/img/star.png" width="15px" height="15px"></p>'+
                 '<button onclick="pickLocation(i)">Pick this location</button>');
                 infowindow.open(map, marker);
             }
