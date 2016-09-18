@@ -25,6 +25,13 @@ namespace MeetMeThere.MVC.Controllers.Api
             return this._teamService.GetMyTeams();
         }
 
+        [Route("{id}")]
+        [HttpGet]
+        public TeamModel GetTeamModel(int id)
+        {
+            return this._teamService.GetTeamModel(id);
+        }
+
         [Route("create")]
         [HttpPost]
         public void CreateTeam(TeamModel team)

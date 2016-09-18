@@ -27,6 +27,8 @@ namespace MeetMeThere.MVC.Models.Database
         public Nullable<System.DateTime> StartDateTime { get; set; }
         public Nullable<System.DateTime> EndDateTime { get; set; }
         public Nullable<int> Types { get; set; }
+        public string LocationName { get; set; }
+        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Team_Meeting> Team_Meeting { get; set; }

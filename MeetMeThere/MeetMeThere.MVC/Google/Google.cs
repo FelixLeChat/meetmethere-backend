@@ -13,14 +13,14 @@ namespace MeetMeThere.MVC.Google
 {
     public class Google
     {
-        private string ApiKey = "AIzaSyAv_U9TbO9WMBlBPx3aWvJJGyhwUFWbGE0";
+        private readonly string _apiKey = "AIzaSyCrEql_jYJx3lBaxW6ufSXlh_lq8s4KU54";
 
-        public async Task<PlacesApiQueryResponse> SearchPlace(Location location, SearchType searchType)
+        public PlacesApiQueryResponse SearchPlace(Location location, SearchType searchType)
         {
             using (var client = new HttpClient())
             {
-                var response = await client.GetStringAsync(
-                    $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location.lat},{location.lng}&radius=500&type={searchType.Value}&key={this.ApiKey}");
+                var response = client.GetStringAsync(
+                    $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location.lat},{location.lng}&radius=500&type={searchType.Value}&key={this._apiKey}").Result;
                 return JsonConvert.DeserializeObject<PlacesApiQueryResponse>(response);
             }
         }

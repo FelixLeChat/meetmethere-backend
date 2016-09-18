@@ -5,6 +5,8 @@ using System.Linq;
 using MeetMeThere.MVC.Google.Model;
 using MeetMeThere.MVC.Models;
 
+using Newtonsoft.Json.Linq;
+
 namespace MeetMeThere.MVC.Service
 {
     public class SearchService
@@ -16,14 +18,31 @@ namespace MeetMeThere.MVC.Service
 
             // 3 data from google
             var googleService = new Google.Google();
-            var googleData = googleService.SearchPlace(location, searchType).Result;
+            var googleData = googleService.SearchPlace(location, searchType);
             results.AddRange(googleData.ToSearchResult().Take(3));
 
 
             // 3 data from yelp
-            //var yelpService = new Yelp.YelpApiClient();
-            //var yelpData = yelpService.Search("", location, searchType);
-            //results.AddRange(yelpData);
+            var yelpService = new Yelp.YelpApiClient();
+            var yelpData = yelpService.Search("", location, searchType);
+            var businesses = (JArray)yelpData.GetValue("businesses");
+
+            foreach (var business in businesses)
+            {
+                var name = (string)business["name"];
+                var rating = (double)business["rating"];
+                var coordinate = business["location"]["coordinate"];
+                var latitude = (double)coordinate["latitude"];
+                var longitude = (double)coordinate["longitude"];
+
+                results.Add(new SearchResult()
+                {
+                    Name = name,
+                    Rating = rating,
+                    Latitude = latitude,
+                    Longitude = longitude
+                });
+            }
 
             return results;
         }

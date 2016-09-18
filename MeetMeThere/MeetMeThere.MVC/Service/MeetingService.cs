@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using MeetMeThere.MVC.Models;
 using MeetMeThere.MVC.Models.Database;
@@ -40,14 +41,25 @@ namespace MeetMeThere.MVC.Service
         {
             using (var db = new meetmethereEntities())
             {
+                var result = new List<MeetingModel>();
                 var teamService = new TeamService(this.UserToken);
                 var myTeams = teamService.GetMyTeams();
 
                 //return db.Team_Meeting
-                //return db.Team_Meeting.Where(x => myTeams.Select(x => x.Id).Contains(x.TeamId))
-            }
+                var meetings = db.Team_Meeting.Where(x => myTeams.Select(y => y.Id).ToList().Contains(x.TeamId ?? 0)).Select(x => x.Meeting);
 
-            return null;
+                foreach (var meeting in meetings)
+                {
+                    result.Add(new MeetingModel()
+                    {
+                        LocationName = meeting.LocationName,
+                        Name = meeting.Name,
+                        StartDateTime = meeting.StartDateTime ?? new DateTime(),
+                        Address = meeting.Address
+                    });
+                }
+                return result;
+            }
         }
     }
 }

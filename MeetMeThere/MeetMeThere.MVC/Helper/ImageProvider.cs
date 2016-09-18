@@ -19,7 +19,7 @@ namespace MeetMeThere.MVC.Helper
         public static string GetRandomImgPath()
         {
             var r = Rnd.Next(List.Length);
-            return "~/assets/img/" + List[r];
+            return "assets/img/" + List[r];
         }
     }
 }

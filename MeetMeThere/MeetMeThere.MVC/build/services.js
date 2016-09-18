@@ -35,14 +35,14 @@
     }
 
     function isLoggedIn() {
-      return this.loggedIn == ($cookies.get('utoken') && true);
+      return this.loggedIn = ($cookies.get('utoken') && true);
     }
 
     function signup(credentials) {
       return DataGatewayService.post("register", credentials).then(function(response){
         if(response.status === 200 && response.data){
           $cookies.put('uinfo', {username: credentials.Username});
-          $cookies.put('utoken', response.DataTransferItem);
+          $cookies.put('utoken', response.data);
           $window.location.href = '/Dashboard/Teams';
         }
       });

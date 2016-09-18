@@ -66,12 +66,13 @@ namespace MeetMeThere.MVC.Yelp
             var queryParams = new Dictionary<string, string>()
             {
                 { "term", term },
-                //{ "location", location }, // Montreal
+                //{ "location", "montreal" },
                 { "ll", location.lat +"," + location.lng },
                 { "limit", SearchLimit.ToString() },
                 { "sort", "2" },
+                { "radius_filter", "500" },
                 { "cc", "CA" },
-                { "category_filter", filter.Value}
+                //{ "category_filter", filter.Value}
             };
             return this.PerformRequest(baseUrl, queryParams);
         }

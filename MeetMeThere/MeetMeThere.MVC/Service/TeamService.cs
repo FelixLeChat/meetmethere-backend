@@ -84,6 +84,36 @@ namespace MeetMeThere.MVC.Service
             }
         }
 
+        public TeamModel GetTeamModel(int id)
+        {
+            using (var db = new meetmethereEntities())
+            {
+                var team = db.Teams.FirstOrDefault(x => x.Id == id);
+                if (team == null) return null;
+
+                var users = db.Team_User.Where(x => x.TeamId == team.Id).Select(x => x.User).ToList();
+                var userList = new List<UserModel>();
+
+                foreach (var user in users)
+                {
+                    userList.Add(new UserModel()
+                    {
+                        Email = user.Email,
+                        Image = ImageProvider.GetRandomImgPath(),
+                        Username = user.Username
+                    });
+                }
+
+                return new TeamModel()
+                {
+                    Description = team.Description,
+                    Id = team.Id,
+                    Name = team.Name,
+                    Users = userList
+                };
+            }
+        }
+
         public List<TeamModel> GetMyTeams()
         {
             using (var db = new meetmethereEntities())
@@ -103,7 +133,7 @@ namespace MeetMeThere.MVC.Service
                     {
                         Email = y.User.Email,
                         Username = y.User.Username,
-                        Title = db.User_Team_Title.Where(z => z.TeamId == x.TeamId && z.UserId == x.UserId).Select(z => z.Title).FirstOrDefault(),
+                        Title = db.User_Team_Title.Where(z => z.TeamId == x.TeamId && z.UserId == x.UserId).Select(z => z.Title).FirstOrDefault() ?? "Princess",
                         Image = ImageProvider.GetRandomImgPath()
                     }).ToList()
                 }).ToList();

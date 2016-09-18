@@ -538,12 +538,16 @@
     <Content Include="assets\img\calendar.png" />
     <Content Include="assets\img\christian.jpg" />
     <Content Include="assets\img\jenny.jpg" />
+    <Content Include="assets\img\joe.jpg" />
     <Content Include="assets\img\logo-2.png" />
     <Content Include="assets\img\logo.png" />
     <Content Include="assets\img\map-placeholder.png" />
     <Content Include="assets\img\nan.jpg" />
     <Content Include="assets\img\people.png" />
     <Content Include="assets\img\place.png" />
+    <Content Include="assets\img\stevie.jpg" />
+    <Content Include="assets\img\tom.jpg" />
+    <Content Include="assets\img\zoe.jpg" />
     <Content Include="build\controllers.js" />
     <Content Include="build\mmt.app.js" />
     <Content Include="build\services.js" />

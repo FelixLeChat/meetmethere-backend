@@ -6,5 +6,7 @@
     [NeedElectricity] BIT NULL DEFAULT 0, 
     [StartDateTime] DATETIME NULL, 
     [EndDateTime] DATETIME NULL, 
-    [Types] INT NULL DEFAULT null
+    [Types] INT NULL DEFAULT null, 
+    [LocationName] VARCHAR(MAX) NULL, 
+    [Address] VARCHAR(MAX) NULL
 )

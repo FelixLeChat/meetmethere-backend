@@ -22,6 +22,8 @@
           <Property Name="StartDateTime" Type="datetime" />
           <Property Name="EndDateTime" Type="datetime" />
           <Property Name="Types" Type="int" />
+          <Property Name="LocationName" Type="varchar(max)" />
+          <Property Name="Address" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -193,6 +195,8 @@
           <Property Name="EndDateTime" Type="DateTime" Precision="3" />
           <Property Name="Types" Type="Int32" />
           <NavigationProperty Name="Team_Meeting" Relationship="Self.FK_Team_Meeting_Meeting" FromRole="Meeting" ToRole="Team_Meeting" />
+          <Property Name="LocationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -369,6 +373,8 @@
           <EntitySetMapping Name="Meetings">
             <EntityTypeMapping TypeName="meetmethereModel.Meeting">
               <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="NeedWifi" ColumnName="NeedWifi" />
