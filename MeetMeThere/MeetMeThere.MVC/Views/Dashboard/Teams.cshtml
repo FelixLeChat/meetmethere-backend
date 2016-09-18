@@ -64,7 +64,7 @@
 	            </div>
 
 				<h4 class="ui dividing header">Members</h4>
-				<div ng-repeat="user in tctrl.newTeam.Users" class="ui right aligned grid">
+				<div ng-repeat="user in tctrl.newTeam.Users track by $index" class="ui right aligned grid">
 			    	<div class="left floated left aligned eight wide column">
 				      	<!-- TODO: typeahead -->
 				      	<div class="field">
@@ -84,7 +84,7 @@
 				    </div>
 			    	<div class="left floated right aligned one wide column">
 				    	<!-- TODO: remove user from team -->
-				    	<button class="circular grey right floated ui icon button">
+				    	<button tctrl.member($index) class="circular grey right floated ui icon button">
 			      			<i class="icon minus"></i>
 			      		</button>
 				    </div>
@@ -92,7 +92,7 @@
 			 	<div class="ui right aligned grid">
 				 	<div class="left floated left aligned column">
 				    	<!-- TODO: add action to show new set of empty fields -->
-				    	<button ng-click="member()" class="circular create--positive ui icon button">
+				    	<button ng-click="tctrl.member()" class="circular create--positive ui icon button">
 				      		<i class="icon plus"></i>
 				      	</button>
 				    </div>
