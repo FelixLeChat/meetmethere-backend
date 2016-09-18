@@ -26,7 +26,7 @@
 	&--map {
 		width: 100% !important;
 		margin-top: -0px !important;
-	}, 
+	},
 
 	&--participant--img {
 		margin-top: -7px !important;
@@ -35,4 +35,15 @@
 	&--amenities {
 		height: 26px !important;
 	}
+}
+
+.schedule {
+	&--meeting--map {
+		width: 100%;
+	}
+}
+
+#map {
+	height: 400px;
+	width: 400px;
 }
