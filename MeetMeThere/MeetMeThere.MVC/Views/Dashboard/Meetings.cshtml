@@ -3,15 +3,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="ui sidebar visible left vertical menu">
-    <div class="side-bar--logo">
-        <img class="side-bar--logo--img" src="./assets/img/logo-2.png">
-    </div>
-    <p class="side-bar--username">Username</p>
-    <a class="item">
+<div class="ui sidebar visible vertical menu">
+    <div class="side-bar--logo"></div>
+    <p class="side-bar--username">{{gctrl.user.Username}}</p>
+    <a class="item" href="/Dashboard/Teams">
         <img src="./assets/img/people.png">Teams
     </a>
-    <a class="item">
+    <a class="item" href="/Dashboard/Meetings">
         <img src="./assets/img/calendar.png">My Meetings
     </a>
 </div>
@@ -57,14 +55,14 @@
                     </div>
                     <div class="right floated right aligned seven wide column">
                         <div class="extra">
-                            <i class="icon wifi large" id="meeting--amentities"></i>
-                            <i class="icon coffee large" id="meeting--amentities"></i>
-                            <i class="icon plug large" id="meeting--amentities"></i>
-                            <i class="icon food large" id="meeting--amentities"></i>
-                            <i class="icon beer large" id="meeting--amentities"></i>
-                            <i class="icon tree large" id="meeting--amentities"></i>
-                            <i class="icon alarm mute large" id="meeting--amentities"></i>
-                            <i class="icon money large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.WiFi" class="icon wifi large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Electricity" class="icon coffee large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Coffee" class="icon plug large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Food" class="icon food large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Beer" class="icon beer large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Tree" class="icon tree large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Calm" class="icon alarm mute large" id="meeting--amentities"></i>
+                            <i ng-show="meeting.Affordable" class="icon money large" id="meeting--amentities"></i>
                         </div>
                     </div>
                 </div>
@@ -112,7 +110,7 @@
                         </div>
                         <div class="inline field">
                             <div class="ui checkbox">
-                                <input ng-model="mctrl.schedule.Calm" type="checkbox" tabindex="0" class="hidden">
+                              <input ng-model="mctrl.schedule.Calm" type="checkbox" tabindex="0" class="hidden">
                                 <label><i class="alarm mute icon"></i>Quiet atmosphere</label>
                             </div>
                         </div>
@@ -156,7 +154,7 @@
             <div ng-click="mctrl.hide()" class="ui grey deny button">
                 Cancel
             </div>
-            <div ng-click="mctrl.next()" class="ui create--positive right labeled icon button" id="next-button">
+            <div ng-click="mctrl.select()" class="ui create--positive right labeled icon button" id="next-button">
                 Next
                 <i class="arrow right icon"></i>
             </div>
@@ -177,7 +175,7 @@
             <div ng-repeat="result in mctrl.results track by $index">
               <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="frequency" checked="checked">
+                    <input type="radio" ng-model="result.chosen" name="frequency" checked="checked">
                     <label><h4>{{result.LocationName}}</h4></label>
                             <i class="icon marker"></i>{{result.Address}}
                             </br>
@@ -207,10 +205,10 @@
     </div>
         </div>
         <div class="actions">
-            <div class="ui grey deny button">
+            <div ng-click="mctrl.hide(2)" class="ui grey deny button">
                 Cancel
             </div>
-            <div class="ui create--positive right labeled icon button">
+            <div ng-click="mctrl.submit()" class="ui create--positive right labeled icon button">
                 Schedule meeting
                 <i class="checkmark icon"></i>
             </div>
@@ -221,10 +219,7 @@
 
 
 </div>
-<script type="text/javascript">
-$("#next-button").click(function() {
-    $('.ui.modal.2').modal('show');
-});
+
 </script>
 <script type="text/javascript">
 $('#example2').calendar({

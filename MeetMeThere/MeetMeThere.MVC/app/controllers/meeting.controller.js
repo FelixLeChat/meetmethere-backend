@@ -9,14 +9,19 @@
       vm.route = {
         'meeting': 'meeting',
         'team': 'team',
+        'search': 'search',
+        'submit': 'meeting/submit'
       };
+      vm.schedule ={};
       vm.show = show;
       vm.hide = hide;
       vm.create = create;
       vm.select = select;
+      vm.submit = submit;
       vm.position = {};
       vm.meetings = [];
       vm.teams = [];
+      vm.results = [];
 
       activate();
 
@@ -49,18 +54,18 @@
       }
 
       function create(){
-        for(var i = 0 ; i < vm.newTeam.Users.length; i++){
-          if(!vm.newTeam.Users[i].Username){
-            vm.newTeam.Users.splice(i);
-          }
-        }
-        if(vm.newTeam.Users.length > 0){
-          return DataGatewayService[vm.method.create](vm.route.create, vm.newTeam ,AuthService.getToken()).then(function(response){
-            vm.teams.push(vm.newTeam);
-            vm.newTeam = [];
-          }).catch(function(error){
-          });
-        }
+        vm.schedule = {
+          StartDate: '',
+          StartTime: '',
+          WiFi: false,
+          Electricity: false,
+          Calm: false,
+          Nature: false,
+          Coffee: false,
+          Beer: false,
+          Food: false,
+          Affordable: false,
+        };
       }
 
       function member(){
@@ -72,25 +77,52 @@
 
       function show(){
         $('.ui.modal.1').modal('show');
-        vm.newTeam = {
-          "Description": "",
-          "Name": "",
-          "Users": [
-            {
-              "Username": "",
-              "Role": "",
-            }
-          ],
-        };
+        create();
       }
 
-      function hide(){
-        $('.ui.modal.1').modal('hide');
+      function hide(x){
+        if(x === undefined) x =1;
+        $('.ui.modal.'+x).modal('hide');
       }
 
       function select(){
-        create();
         $('.ui.modal.2').modal('show');
+        var position = getLocation();
+        vm.schedule.Latitude = position.coords.latitude;
+        vm.schedule.Longitude = position.coords.longitude;
+        return DataGatewayService.post(vm.route.search, vm.schedule ,AuthService.getToken()).then(function(response){
+          if(response.status % 200 < 100){
+            for(var i=0; i < vm.results; i++){
+              vm.results.pop();
+            }
+            for(var i=0; i < response.data; i++){
+              response.data[i].chosen = false;
+              vm.results.push(response.data[i]);
+            }
+          }
+        });
+
+      }
+
+      function submit(){
+        var choice;
+        for (var i = 0; i < vm.results.length; i++) {
+          if (vm.results[i].chosen) {
+            choice = vm.results[i];
+            return DataGatewayService.post(vm.route.submit, choice , AuthService.getToken()).then(function(){
+              hide(2);
+            });
+          }
+        }
+        //
+      }
+
+      function getLocation() {
+          if (navigator.geolocation) {
+              return navigator.geolocation.getCurrentPosition();
+          } else {
+              return;
+          }
       }
 
 
