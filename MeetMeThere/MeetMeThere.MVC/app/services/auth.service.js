@@ -31,7 +31,7 @@
     }
 
     function isLoggedIn() {
-      return this.loggedIn == ($cookies.get('utoken') && true);
+      return this.loggedIn = ($cookies.get('utoken') && true);
     }
 
     function signup(credentials) {
