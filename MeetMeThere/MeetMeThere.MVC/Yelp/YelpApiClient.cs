@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 
+using MeetMeThere.MVC.Google.Model;
 using MeetMeThere.MVC.Models;
 
 using Newtonsoft.Json.Linq;
@@ -59,17 +60,18 @@ namespace MeetMeThere.MVC.Yelp
             return JObject.Parse(stream.ReadToEnd());
         }
 
-        public JObject Search(string term, string location, CategoryFilter filter)
+        public JObject Search(string term, Location location, SearchType filter)
         {
             var baseUrl = ApiHost + SearchPath;
             var queryParams = new Dictionary<string, string>()
             {
                 { "term", term },
-                { "location", location }, // Montreal
+                //{ "location", location }, // Montreal
+                { "ll", location.lat +"," + location.lng },
                 { "limit", SearchLimit.ToString() },
                 { "sort", "2" },
                 { "cc", "CA" },
-                { "category_filter", ""}
+                { "category_filter", filter.Value}
             };
             return this.PerformRequest(baseUrl, queryParams);
         }

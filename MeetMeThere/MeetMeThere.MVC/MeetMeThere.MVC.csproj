@@ -570,6 +570,7 @@
     <Compile Include="Controllers\Api\LoginController.cs" />
     <Compile Include="Controllers\Api\MeetingsController.cs" />
     <Compile Include="Controllers\Api\RegisterController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SecureController\SecureApi.cs" />
     <Compile Include="Controllers\SecureController\SecureController.cs" />
     <Compile Include="Controllers\Api\TeamController.cs" />
@@ -622,6 +623,8 @@
     <Compile Include="Models\LoginMessage.cs" />
     <Compile Include="Models\MeetingModel.cs" />
     <Compile Include="Models\RegisterMessage.cs" />
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserToken.cs" />
@@ -629,6 +632,7 @@
     <Compile Include="Service\AbstractService.cs" />
     <Compile Include="Service\ConnexionService.cs" />
     <Compile Include="Service\MeetingService.cs" />
+    <Compile Include="Service\SearchService.cs" />
     <Compile Include="Service\TeamService.cs" />
     <Compile Include="Yelp\YelpApiClient.cs" />
   </ItemGroup>
@@ -1097,6 +1101,7 @@
     <Folder Include="assets\scss\meetings\" />
     <Folder Include="assets\scss\register\" />
     <Folder Include="assets\scss\teams\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

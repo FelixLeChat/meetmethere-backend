@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 using MeetMeThere.MVC.Models;
 
@@ -51,6 +52,24 @@ namespace MeetMeThere.MVC.Google.Model
         public List<object> html_attributions { get; set; }
         public List<Result> results { get; set; }
         public string status { get; set; }
+
+        public List<SearchResult> ToSearchResult()
+        {
+            List<SearchResult> searchResults = new List<SearchResult>();
+
+            foreach (var result in this.results)
+            {
+                searchResults.Add(new SearchResult()
+                {
+                    Latitude = result.geometry.location.lat,
+                    Longitude = result.geometry.location.lng,
+                    Name = result.name,
+                    Rating = (int)result.rating,
+                    Type = result.types
+                });
+            }
+            return searchResults;
+        }
     }
 
     public class SearchType
@@ -67,5 +86,24 @@ namespace MeetMeThere.MVC.Google.Model
         public static SearchType Cafe => new SearchType("cafe");
         public static SearchType Library => new SearchType("library");
         public static SearchType University => new SearchType("university");
+
+        public static SearchType GetSearchType(string type)
+        {
+            type = type.ToLower();
+
+            switch (type)
+            {
+                case "bar":
+                    return Bar;
+                case "park":
+                    return Park;
+                case "library":
+                    return Library;
+                case "unisersity":
+                    return University;
+                default:
+                    return Cafe;
+            }
+        }
     }
 }
