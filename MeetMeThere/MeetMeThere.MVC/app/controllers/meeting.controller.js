@@ -1,29 +1,31 @@
 (function(){
   angular.module('app.controllers')
-    .controller('TeamController', TeamController);
+    .controller('MeetingController', MeetingController);
 
-    TeamController.$inject = ['DataGatewayService', 'AuthService', '$window'];
+    MeetingController.$inject = ['DataGatewayService', 'AuthService', '$window'];
 
-    function TeamController(DataGatewayService, AuthService, $window){
+    function MeetingController(DataGatewayService, AuthService, $window){
       var vm = this;
-      vm.route = {
-        view: 'team',
-        create: 'team/create'
-      };
-      vm.newTeam = {};
+      vm.route = 'meeting';
       vm.teams = [];
       vm.show = show;
       vm.hide = hide;
-      vm.create = create;
-      vm.member = member;
-      vm.method = {
-        create: 'post',
-        view: 'get',
-      };
+      vm.request = request;
+      vm.position = {};
 
       activate();
 
     /////////////////////
+
+      function getUserLocation(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position){
+              vm.position = position;
+            });
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      }
 
       function activate(){
         if(!AuthService.isLoggedIn()){
@@ -50,15 +52,11 @@
         }
       }
 
-      function member(index){
-        if(index !== undefined){
-          vm.newTeam.splice(index);
-        }else{
-          vm.newTeam.Users.push({
-            "Username": "",
-            "Role": "",
-          });
-        }
+      function member(){
+        vm.newTeam.Users.push({
+          "Username": "",
+          "Role": "",
+        });
       }
 
       function show(){
