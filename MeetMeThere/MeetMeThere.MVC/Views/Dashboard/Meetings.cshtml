@@ -30,106 +30,79 @@
         </div>
     </div>
     <!-- TODO: ng-repeat for all future (?) meetings -->
-    <div class="ui padded segment items">
-        <div class="item">
-            <div class="image">
-                <img id="meeting--map" src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x500&key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0">
-            </div>
-            <div class="content">
-                <a class="header">Team Name - Meeting Location</a>
-                <div class="meta">
-                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
-                </div>
-                <div class="extra">
-                    <i class="icon marker"></i> 1721 Ropery Street, Montreal, Québec
-                </div>
-                <div class="description">
-                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
-                </div>
-                <div class="ui right aligned grid">
-                    <div class="left floated left aligned nine wide column">
-                        <div class="extra">
-                            <a class="ui small yellow image label">
-                                <img id="meeting--participant--img" src="./assets/img/christian.jpg"> Christian
-                                <div class="detail"><i class="icon help"></i></div>
-                            </a>
-                            <a class="ui teal image label">
-                                <img id="meeting--participant--img" src="./assets/img/jenny.jpg"> Jenny
-                                <div class="detail"><i class="icon checkmark"></i></div>
-                            </a>
-                            <a class="ui grey image label">
-                                <img id="meeting--participant--img" src="./assets/img/nan.jpg"> Amanda
-                                <div class="detail"><i class="icon remove"></i></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="right floated right aligned seven wide column">
-                        <div class="extra">
-                            <i class="icon wifi large" id="meeting--amentities"></i>
-                            <i class="icon coffee large" id="meeting--amentities"></i>
-                            <i class="icon plug large" id="meeting--amentities"></i>
-                            <i class="icon food large" id="meeting--amentities"></i>
-                            <i class="icon beer large" id="meeting--amentities"></i>
-                            <i class="icon tree large" id="meeting--amentities"></i>
-                            <i class="icon alarm mute large" id="meeting--amentities"></i>
-                            <i class="icon money large" id="meeting--amentities"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- TODO: delete. only for demo purposes -->
-    <div class="ui padded segment items">
-        <div class="item">
-            <div class="image">
-                <!-- TODO: insert actual map -->
-                <img id="meeting--map" src="./assets/img/map-placeholder.png">
-            </div>
-            <div class="content">
-                <a class="header">Team Name - Meeting Location</a>
-                <div class="meta">
-                    <span>Saturday, September 16 2016. 10:00 - 20:00</span>
-                </div>
-                <div class="extra">
-                    <i class="icon marker"></i> 1721 Ropery Street, Montreal, Québec
-                </div>
-                <div class="description">
-                    <p>Today is all about brainstorming. We will gather ideas on how to proceed in our projects, products, and internally.</p>
-                </div>
-                <div class="ui right aligned grid">
-                    <div class="left floated left aligned nine wide column">
-                        <div class="extra">
-                            <a class="ui small yellow image label">
-                                <img id="meeting--participant--img" src="./assets/img/christian.jpg"> Christian
-                                <div class="detail"><i class="icon help"></i></div>
-                            </a>
-                            <a class="ui teal image label">
-                                <img id="meeting--participant--img" src="./assets/img/jenny.jpg"> Jenny
-                                <div class="detail"><i class="icon checkmark"></i></div>
-                            </a>
-                            <a class="ui grey image label">
-                                <img id="meeting--participant--img" src="./assets/img/nan.jpg"> Amanda
-                                <div class="detail"><i class="icon remove"></i></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="right floated right aligned seven wide column">
-                        <div class="extra">
-                            <i class="icon wifi large" id="meeting--amentities"></i>
-                            <i class="icon coffee large" id="meeting--amentities"></i>
-                            <i class="icon plug large" id="meeting--amentities"></i>
-                            <i class="icon food large" id="meeting--amentities"></i>
-                            <i class="icon beer large" id="meeting--amentities"></i>
-                            <i class="icon tree large" id="meeting--amentities"></i>
-                            <i class="icon alarm mute large" id="meeting--amentities"></i>
-                            <i class="icon money large" id="meeting--amentities"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <script>
+        var f = document.createElement("div");
+        f.setAttribute('class',"ui padded segment items");
+        var g = document.createElement("div");
+        g.setAttribute('class',"item");
+        var h = document.createElement("div");
+        h.setAttribute('class',"image");
+        var imageName = "https://maps.googleapis.com/maps/api/staticmap?center="+sctrl.latlng+"&zoom=13&size=600x500&key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0";
+        var i = document.createElement("img");
+        i.setAttribute('src',imageName);
+        h.appendChild(i);
+        g.appendChild(h);
+        var j = document.createElement("div");
+        j.setAttribute('class',"content");
+        var k = document.createElement("a");
+        a.setAttribute('class',"header");
+        a.value("Team Name - Meeting Location");
+        var l = document.createElement("div");
+        l.setAttribute('class',"meta");
+        l.value("<span>Saturday, September 16 2016. 10:00 - 20:00</span>")
+        var m = document.createElement("div");
+        m.setAttribute('class',"extra");
+        m.value(sctrl.extra);
+        var n = document.createElement("div");
+        n.setAttribute('class',"description");
+        n.value(sctrl.description);
+        var o = document.createElement("div");
+        o.setAttribute('class',"ui right aligned grid");
+        var p = document.createElement("div");
+        p.setAttribute('class',"left floated left aligned nine wide column");
+        var q = document.createElement("div");
+        q.setAttribute('class',"extra");
+        p.appendChilld(q);
+        o.appendChild(p);
+        var r = document.createElement("div");
+        r.setAttribute('class',"right floated right aligned seven wide column");
+        var s = document.createElement("div");
+        s.setAttribute('class',"extra");
+        var i1 = document.CreateElement("i");
+        i1.setAttribute('class',"icon wifi large");
+        i1.setAttribute('id',"meeting--amentities");
+        var i2 = document.CreateElement("i");
+        i2.setAttribute('class',"icon coffee large");
+        i2.setAttribute('id',"meeting--amentities");
+        var i3 = document.CreateElement("i");
+        i3.setAttribute('class',"icon plug large");
+        i3.setAttribute('id',"meeting--amentities");
+        var i4 = document.CreateElement("i");
+        i4.setAttribute('class',"icon food large");
+        i4.setAttribute('id',"meeting--amentities");
+        var i5 = document.CreateElement("i");
+        i5.setAttribute('class',"icon beer large");
+        i5.setAttribute('id',"meeting--amentities");
+        var i6 = document.CreateElement("i");
+        i6.setAttribute('class',"icon tree large");
+        i6.setAttribute('id',"meeting--amentities");
+        var i7 = document.CreateElement("i");
+        i7.setAttribute('class',"icon alarm mute large");
+        i7.setAttribute('id',"meeting--amentities");
+        var i8 = document.CreateElement("i");
+        i8.setAttribute('class',"icon money large");
+        i8.setAttribute('id',"meeting--amentities");
+        s.appendChild(i1);s.appendChild(i2);s.appendChild(i3);
+        s.appendChild(i4);s.appendChild(i5);s.appendChild(i6);
+        s.appendChild(i7);s.appendChild(i8);
+        o.appendChild(s);
+        j.appendChild(k);j.appendChild(l);j.appendChild(m);
+        j.appendChild(n);j.appendChild(o);
+        g.appendChild(j);
+        f.appendChild(g);
+        
+        document.getElementsByTagName('body')[0].appendChild(f);
+    </script>
     <div class="ui modal 1">
         <i class="close icon"></i>
         <div class="header">
@@ -279,6 +252,11 @@
             TODO: insert actual map
               <img class="schedule--meeting--map" src="./assets/img/map-placeholder.png">
         </div> -->
+        <img id="meeting--map2">
+            <script>
+                var nameA = "https://maps.googleapis.com/maps/api/staticmap?center="+sctrl.latLng+"&zoom=13&size=600x500&key=AIzaSyAERDK8UyHIWS6okdvqbQmIASNvzNaKSE0"
+                document.getElementById('meeting--map2').src = nameA;
+            </script>
       </div>
     </div>
         </div>
