@@ -35,7 +35,7 @@
         <!-- TODO: ng-repeat for all teams -->
         <div class="ui padded segment">
             <div ng-repeat="team in tctrl.teams track by $index" class="ui right aligned grid">
-                <div class="left floated left aligned eight wide column">
+                <div class="left floated left aligned eight wide column team-info">
                     <h2>{{team.Name}}</h2>
                     <p>{{team.Description}}</p>
                     <!-- TODO: put in correct icons -->
@@ -46,13 +46,15 @@
                         <img class="team--button" src="./assets/img/calendar.png">
                     </button>
                 </div>
-                <div ng-repeat="user in team.Users track by $index" class="right floated right aligned eight wide column">
-                    <!-- TODO: ng-repeat for all team members -->
-                    <a class="ui large yellow image label team--member">
-                        <img src="{{user.Image}}">
-                        {{user.Username}}
-                        <div class="detail">{{user.Title}}</div>
-                    </a><br><br>
+                <div class="right floated aligned team-div">
+                    <span ng-repeat="user in team.Users track by $index">
+                        <!-- TODO: ng-repeat for all team members -->
+                        <a class="ui large yellow image label team--member">
+                            <img src="{{user.Image}}">
+                            {{user.Username}}
+                            <div class="detail">{{user.Title}}</div>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>

@@ -33,7 +33,19 @@
 
 	&--member {
 		margin-bottom: 14px;
+        float: right !important;
+        height: 0px;
+        margin-top: 10px !important;
 	}
+
+     &-div {
+         width: 300px;
+     }
+
+     &-info {
+        width: 300px !important;
+        margin-right: 0px !important;
+     }
 }
 
 .create {
