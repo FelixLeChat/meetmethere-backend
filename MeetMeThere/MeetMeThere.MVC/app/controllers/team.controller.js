@@ -29,10 +29,14 @@
         if(!AuthService.isLoggedIn()){
           $window.location.href = '/';
         }else{
-          return DataGatewayService[vm.method.view](vm.route.view, {}, AuthService.getToken()).then(function(response){
-            vm.teams = response.data;
-          });
+          view();
         }
+      }
+
+      function view(){
+        return DataGatewayService[vm.method.view](vm.route.view, {}, AuthService.getToken()).then(function(response){
+          vm.teams = response.data;
+        });
       }
 
       function create(){
@@ -43,8 +47,11 @@
         }
         if(vm.newTeam.Users.length > 0){
           return DataGatewayService[vm.method.create](vm.route.create, vm.newTeam ,AuthService.getToken()).then(function(response){
-            vm.teams.push(vm.newTeam);
-            vm.newTeam = [];
+            if(response.status % 200 < 100){
+              vm.newTeam = [];
+              hide();
+            }
+            return view();
           }).catch(function(error){
           });
         }
