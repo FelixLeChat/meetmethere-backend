@@ -118,6 +118,7 @@
       vm.show = show;
       vm.hide = hide;
       vm.create = create;
+      vm.member = member;
       vm.method = {
         create: 'post',
         view: 'get',
@@ -138,16 +139,30 @@
       }
 
       function create(){
-        return DataGatewayService[vm.method.create](vm.route.create, {},AuthService.getToken()).then(function(response){
-          vm.teams.push(vm.newTeam);
-          vm.newTeam = [];
-        }).catch(function(error){
+        for(var i = 0 ; i < vm.newTeam.Users.length; i++){
+          if(!vm.newTeam.Users[i].Username){
+            vm.newTeam.Users.splice(i);
+          }
+        }
+        if(vm.newTeam.Users.length > 0){
+          return DataGatewayService[vm.method.create](vm.route.create, vm.newTeam ,AuthService.getToken()).then(function(response){
+            vm.teams.push(vm.newTeam);
+            vm.newTeam = [];
+          }).catch(function(error){
+          });
+        }
+      }
+
+      function member(){
+        vm.newTeam.Users.push({
+          "Username": "",
+          "Role": "",
         });
       }
 
       function show(){
         $('.ui.modal').modal('show');
-        vm.newteam = {
+        vm.newTeam = {
           "Description": "",
           "Name": "",
           "Users": [
