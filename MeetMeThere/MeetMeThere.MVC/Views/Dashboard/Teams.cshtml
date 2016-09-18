@@ -33,8 +33,8 @@
             </div>
         </div>
         <!-- TODO: ng-repeat for all teams -->
-        <div class="ui padded segment">
-            <div ng-repeat="team in tctrl.teams track by $index" class="ui right aligned grid">
+        <div ng-repeat="team in tctrl.teams track by $index" class="ui padded segment">
+            <div class="ui right aligned grid">
                 <div class="left floated left aligned eight wide column">
                     <h2>{{team.Name}}</h2>
                     <p>{{team.Description}}</p>
@@ -48,7 +48,7 @@
                 </div>
                 <div ng-repeat="user in team.Users track by $index" class="right floated right aligned eight wide column">
                     <!-- TODO: ng-repeat for all team members -->
-                    <a class="ui large yellow image label team--member">
+                    <a class="ui large {{['yellow', 'teal', 'grey'][$index % 3]}} image label team--member">
                         <img src="{{user.Image}}">
                         {{user.Username}}
                         <div class="detail">{{user.Title}}</div>
