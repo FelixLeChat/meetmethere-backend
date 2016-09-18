@@ -23,7 +23,7 @@
     function login(credentials) {
       return DataGatewayService.post("login", credentials).then(function(response){
         if(response.status === 200 && response.data){
-          $cookies.put('uinfo', {username: credentials.Username, email: credentials.Email});
+          $cookies.put('uinfo', {Username: credentials.Username, email: credentials.Email});
           $cookies.put('utoken', response.data);
           $window.location.href = '/Dashboard/Teams';
         }
@@ -37,7 +37,7 @@
     function signup(credentials) {
       return DataGatewayService.post("register", credentials).then(function(response){
         if(response.status === 200 && response.data){
-          $cookies.put('uinfo', {username: credentials.Username});
+          $cookies.put('uinfo', {Username: credentials.Username});
           $cookies.put('utoken', response.data);
           $window.location.href = '/Dashboard/Teams';
         }
